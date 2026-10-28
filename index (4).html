@@ -1,0 +1,1002 @@
+<!doctype html>
+<html lang="mn">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Үг шалгалт</title>
+<meta name="description" content="1-р номын 1-10-р бүлгийн 562 үгээр тоглоомоор шалгалт өгөөрэй">
+
+<meta property="og:title" content="Үг шалгалт">
+<meta property="og:description" content="1-р номын 1-10-р бүлгийн 562 үгээр тоглоомоор шалгалт өгөөрэй">
+<meta property="og:image" content="https://nhurlee1234-stack.github.io/1-korean-vocab-quiz/og-image.png">
+<meta property="og:type" content="website">
+<meta property="og:url" content="https://nhurlee1234-stack.github.io/1-korean-vocab-quiz/">
+
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Үг шалгалт">
+<meta name="twitter:description" content="1-р номын 1-10-р бүлгийн 562 үгээр тоглоомоор шалгалт өгөөрэй">
+<meta name="twitter:image" content="https://nhurlee1234-stack.github.io/1-korean-vocab-quiz/og-image.png">
+
+<style>
+  :root{
+    --bg:#0f1420;
+    --bg2:#161c2c;
+    --card:#1c2338;
+    --card-hi:#232b45;
+    --text:#f1f3fa;
+    --muted:#8a92ab;
+    --accent:#7c5cff;
+    --accent2:#ff5c9a;
+    --good:#2fd480;
+    --bad:#ff5c6c;
+    --gold:#ffc24b;
+    --radius:20px;
+  }
+  @media (prefers-color-scheme: light){
+    :root:not([data-theme="dark"]){
+      --bg:#f4f5fb;
+      --bg2:#ffffff;
+      --card:#ffffff;
+      --card-hi:#eef0fb;
+      --text:#1b1f2e;
+      --muted:#696f85;
+      --accent:#6a4bff;
+      --accent2:#ff3f8d;
+      --good:#1fae6c;
+      --bad:#e64558;
+      --gold:#e0a429;
+    }
+  }
+  :root[data-theme="light"]{
+    --bg:#f4f5fb;
+    --bg2:#ffffff;
+    --card:#ffffff;
+    --card-hi:#eef0fb;
+    --text:#1b1f2e;
+    --muted:#696f85;
+    --accent:#6a4bff;
+    --accent2:#ff3f8d;
+    --good:#1fae6c;
+    --bad:#e64558;
+    --gold:#e0a429;
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Noto Sans",sans-serif;
+    background:
+      radial-gradient(1100px 600px at 10% -10%, rgba(124,92,255,.35), transparent 60%),
+      radial-gradient(900px 500px at 110% 10%, rgba(255,92,154,.25), transparent 55%),
+      var(--bg);
+    color:var(--text);
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .wrap{
+    max-width:480px;
+    margin:0 auto;
+    min-height:100vh;
+    padding-block:14px 24px;
+    padding-left:max(16px, env(safe-area-inset-left, 0px));
+    padding-right:max(16px, env(safe-area-inset-right, 0px));
+    display:flex;
+    flex-direction:column;
+  }
+  header.top{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:12px;
+  }
+  .brand{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    font-weight:800;
+    font-size:19px;
+    letter-spacing:-.2px;
+  }
+  .brand .dot{
+    width:34px;height:34px;border-radius:11px;
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    display:flex;align-items:center;justify-content:center;font-size:18px;
+    box-shadow:0 6px 18px rgba(124,92,255,.35);
+  }
+  .screen{display:none;flex:1;flex-direction:column;animation:fade .25s ease;}
+  .screen.active{display:flex;}
+  @keyframes fade{from{opacity:0;transform:translateY(6px);}to{opacity:1;transform:translateY(0);}}
+
+  /* HOME */
+  .hero{
+    background:linear-gradient(135deg, rgba(124,92,255,.18), rgba(255,92,154,.12));
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--radius);
+    padding:14px 16px;
+    margin-bottom:12px;
+  }
+  .hero h1{margin:0 0 4px;font-size:19px;line-height:1.25;}
+  .hero p{margin:0;color:var(--muted);font-size:13px;line-height:1.4;}
+
+  .section-title{
+    font-size:12px;
+    font-weight:700;
+    color:var(--muted);
+    text-transform:uppercase;
+    letter-spacing:.06em;
+    margin:2px 0 6px;
+  }
+
+  .ch-grid{
+    display:grid;
+    grid-template-columns:1fr 1fr;
+    gap:8px;
+    margin-bottom:4px;
+  }
+  .ch-card{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;
+    padding:10px;
+    cursor:pointer;
+    text-align:left;
+    display:flex;
+    flex-direction:column;
+    gap:4px;
+    transition:transform .12s ease, border-color .12s ease, background .12s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .ch-card:active{transform:scale(.97);}
+  .ch-card.selected{
+    border-color:var(--accent);
+    background:var(--card-hi);
+    box-shadow:0 0 0 2px rgba(124,92,255,.35) inset;
+  }
+  .ch-card .em{
+    width:28px;height:28px;border-radius:9px;
+    display:flex;align-items:center;justify-content:center;
+    flex-shrink:0;
+  }
+  .ch-card .em svg{width:16px;height:16px;display:block;}
+  .ch-card .ti{font-weight:700;font-size:13px;line-height:1.2;}
+  .ch-card .n{font-size:11px;color:var(--muted);}
+  .ch-card .mastery{
+    font-size:10px;color:var(--good);font-weight:700;
+  }
+
+  .all-card{
+    background:linear-gradient(135deg, rgba(124,92,255,.22), rgba(255,92,154,.18));
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    padding:12px 14px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    cursor:pointer;
+    margin-bottom:12px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .all-card.selected{box-shadow:0 0 0 2px var(--accent) inset;}
+  .all-card .l{font-weight:800;font-size:15px;}
+  .all-card .r{font-size:12px;color:var(--muted);}
+
+  .mode-row{display:flex;gap:8px;margin-bottom:12px;}
+  .mode-btn{
+    flex:1;
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:13px;
+    padding:9px 8px;
+    text-align:center;
+    cursor:pointer;
+    font-size:12.5px;
+    font-weight:700;
+    color:var(--muted);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .mode-btn.selected{
+    color:var(--text);
+    border-color:var(--accent);
+    background:var(--card-hi);
+    box-shadow:0 0 0 2px rgba(124,92,255,.35) inset;
+  }
+
+  .primary-btn{
+    background:linear-gradient(135deg,var(--accent),var(--accent2));
+    color:#fff;
+    border:none;
+    border-radius:16px;
+    padding:14px;
+    font-size:15.5px;
+    font-weight:800;
+    cursor:pointer;
+    box-shadow:0 10px 24px rgba(124,92,255,.35);
+    -webkit-tap-highlight-color:transparent;
+  }
+  .primary-btn:disabled{opacity:.4;box-shadow:none;}
+  .ghost-btn{
+    background:transparent;
+    color:var(--text);
+    border:1px solid rgba(255,255,255,.14);
+    border-radius:14px;
+    padding:13px;
+    font-size:14px;
+    font-weight:700;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .stats-strip{
+    display:flex;
+    gap:8px;
+    margin:12px 0 0;
+  }
+  .stat-pill{
+    flex:1;
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;
+    padding:10px 8px;
+    text-align:center;
+  }
+  .stat-pill b{display:block;font-size:17px;}
+  .stat-pill span{font-size:10.5px;color:var(--muted);}
+
+  /* QUIZ */
+  .quiz-top{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:14px;
+  }
+  .close-btn{
+    width:36px;height:36px;border-radius:12px;
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.08);
+    display:flex;align-items:center;justify-content:center;
+    cursor:pointer;color:var(--muted);font-size:18px;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .progress-track{
+    flex:1;height:10px;background:var(--card);border-radius:99px;overflow:hidden;
+    border:1px solid rgba(255,255,255,.06);
+  }
+  .progress-fill{
+    height:100%;border-radius:99px;
+    background:linear-gradient(90deg,var(--accent),var(--accent2));
+    width:0%;
+    transition:width .3s ease;
+  }
+  .streak-badge{
+    display:flex;align-items:center;gap:3px;
+    font-weight:800;font-size:13px;color:var(--gold);
+    white-space:nowrap;
+  }
+
+  .qcard{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:var(--radius);
+    padding:30px 20px;
+    text-align:center;
+    margin-bottom:18px;
+    position:relative;
+    overflow:hidden;
+  }
+  .qcard .tag{
+    position:absolute;top:12px;left:14px;
+    font-size:10.5px;color:var(--muted);
+    background:var(--card-hi);
+    padding:4px 9px;
+    border-radius:99px;
+  }
+  .qcard .prompt{
+    font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;
+    margin-bottom:10px;
+  }
+  .qcard .word{
+    font-size:38px;
+    font-weight:800;
+    line-height:1.25;
+    margin-bottom:6px;
+    word-break:keep-all;
+  }
+  .qcard .sound-btn{
+    margin-top:6px;
+    background:var(--card-hi);
+    border:none;
+    width:38px;height:38px;border-radius:50%;
+    color:var(--text);
+    font-size:16px;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+
+  .options{display:flex;flex-direction:column;gap:10px;}
+  .opt{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    padding:15px 16px;
+    font-size:15px;
+    font-weight:600;
+    text-align:left;
+    cursor:pointer;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    transition:transform .08s ease, background .15s ease, border-color .15s ease;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .opt:active{transform:scale(.985);}
+  .opt .k{
+    width:24px;height:24px;border-radius:7px;background:var(--card-hi);
+    display:flex;align-items:center;justify-content:center;
+    font-size:11px;font-weight:800;color:var(--muted);
+    flex-shrink:0;margin-right:10px;
+  }
+  .opt-inner{display:flex;align-items:center;flex:1;}
+  .opt.correct{
+    background:rgba(47,212,128,.14);
+    border-color:var(--good);
+    color:var(--good);
+  }
+  .opt.correct .k{background:var(--good);color:#06351e;}
+  .opt.wrong{
+    background:rgba(255,92,108,.14);
+    border-color:var(--bad);
+    color:var(--bad);
+  }
+  .opt.wrong .k{background:var(--bad);color:#3a0a0e;}
+  .opt.dim{opacity:.45;}
+
+  .type-wrap{margin-bottom:18px;}
+  .type-input{
+    width:100%;
+    background:var(--card);
+    border:1.5px solid rgba(255,255,255,.1);
+    border-radius:14px;
+    padding:16px;
+    font-size:17px;
+    color:var(--text);
+    text-align:center;
+    font-weight:700;
+    outline:none;
+  }
+  .type-input:focus{border-color:var(--accent);}
+  .type-input.correct{border-color:var(--good);color:var(--good);}
+  .type-input.wrong{border-color:var(--bad);color:var(--bad);}
+  .type-feedback{
+    text-align:center;margin-top:10px;font-size:13px;color:var(--muted);min-height:18px;
+  }
+  .type-feedback b{color:var(--text);}
+
+  .next-btn{
+    margin-top:auto;
+    display:none;
+  }
+  .next-btn.show{display:block;}
+
+  /* RESULTS */
+  .result-hero{
+    text-align:center;
+    padding:30px 10px 10px;
+  }
+  .result-title{font-size:22px;font-weight:800;margin-top:6px;margin-bottom:4px;}
+  .result-sub{color:var(--muted);font-size:14px;margin-bottom:22px;}
+  .score-circle{
+    width:150px;height:150px;border-radius:50%;
+    margin:0 auto 22px;
+    display:flex;align-items:center;justify-content:center;flex-direction:column;
+    background:conic-gradient(var(--accent) calc(var(--pct,0)*1%), var(--card-hi) 0);
+    position:relative;
+  }
+  .score-circle::before{
+    content:"";
+    position:absolute;inset:9px;
+    border-radius:50%;
+    background:var(--bg2);
+  }
+  .score-circle .num{position:relative;font-size:32px;font-weight:800;}
+  .score-circle .lbl{position:relative;font-size:11px;color:var(--muted);}
+  .result-stats{
+    display:flex;gap:10px;margin-bottom:22px;
+  }
+  .result-stats .s{
+    flex:1;background:var(--card);border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;padding:12px;text-align:center;
+  }
+  .result-stats .s b{display:block;font-size:19px;}
+  .result-stats .s span{font-size:11px;color:var(--muted);}
+  .review-list{margin-bottom:20px;}
+  .review-item{
+    display:flex;align-items:center;gap:10px;
+    padding:10px 4px;
+    border-bottom:1px solid rgba(255,255,255,.06);
+    font-size:13.5px;
+  }
+  .review-item .mark{width:8px;height:8px;border-radius:50%;flex-shrink:0;}
+  .review-item .mark.ok{background:var(--good);}
+  .review-item .mark.no{background:var(--bad);}
+  .review-item .w{font-weight:700;margin-right:6px;}
+  .review-item .m{color:var(--muted);}
+  .result-actions{display:flex;flex-direction:column;gap:10px;}
+
+  .best-banner{
+    background:linear-gradient(135deg, rgba(255,194,75,.2), rgba(255,92,154,.15));
+    border:1px solid rgba(255,194,75,.35);
+    border-radius:14px;
+    padding:10px 14px;
+    text-align:center;
+    font-size:13px;
+    font-weight:700;
+    color:var(--gold);
+    margin-bottom:18px;
+  }
+
+  input::placeholder{color:var(--muted);}
+</style>
+</head>
+<body>
+
+<div class="wrap">
+
+  <header class="top">
+    <div class="brand"><span class="dot">한</span>Үг шалгалт</div>
+  </header>
+
+  <!-- HOME SCREEN -->
+  <div class="screen active" id="screen-home">
+    <div class="hero">
+      <h1>Солонгос үгээ шалгаарай!</h1>
+      <p>1-р номын 1-10-р бүлгийн үгсээс асуулт гарна. Бүлгээ сонгоод эсвэл бүгдээс холимог тестээ эхлүүл.</p>
+    </div>
+
+    <div class="section-title">Бүлэг сонгох</div>
+    <div class="all-card selected" id="all-card" onclick="selectAll()">
+      <div>
+        <div class="l">Холимог (бүх бүлэг)</div>
+        <div class="r" id="all-count">562 үг</div>
+      </div>
+      <div class="r">→</div>
+    </div>
+
+    <div class="ch-grid" id="ch-grid"></div>
+
+    <div class="section-title">Горим</div>
+    <div class="mode-row" id="mode-row">
+      <div class="mode-btn selected" data-mode="mcq" onclick="selectMode('mcq')">Сонгох</div>
+      <div class="mode-btn" data-mode="type" onclick="selectMode('type')">Бичих</div>
+    </div>
+
+    <div class="section-title">Үгийн тоо</div>
+    <div class="mode-row" id="length-row">
+      <div class="mode-btn selected" data-len="20" onclick="selectLength(20)">20 асуулт</div>
+      <div class="mode-btn" data-len="all" onclick="selectLength('all')">Бүгд</div>
+    </div>
+
+    <button class="primary-btn" id="start-btn" onclick="startQuiz()">20 асуулттай тест эхлэх →</button>
+
+    <div class="stats-strip">
+      <div class="stat-pill"><b id="stat-best">0%</b><span>Хамгийн өндөр</span></div>
+      <div class="stat-pill"><b id="stat-played">0</b><span>Тоглосон</span></div>
+      <div class="stat-pill"><b id="stat-mastered">0</b><span>Сурсан үг</span></div>
+    </div>
+  </div>
+
+  <!-- QUIZ SCREEN -->
+  <div class="screen" id="screen-quiz">
+    <div class="quiz-top">
+      <div class="close-btn" onclick="exitQuiz()">✕</div>
+      <div class="progress-track"><div class="progress-fill" id="progress-fill"></div></div>
+      <div class="streak-badge" id="streak-badge">Дараалал 0</div>
+    </div>
+
+    <div class="qcard">
+      <div class="tag" id="q-tag">1-р бүлэг</div>
+      <div class="prompt" id="q-prompt">Монгол утгыг сонго</div>
+      <div class="word" id="q-word">학교</div>
+    </div>
+
+    <div class="options" id="options-wrap"></div>
+
+    <div class="type-wrap" id="type-wrap" style="display:none;">
+      <input class="type-input" id="type-input" placeholder="Монгол утгыг бич..." autocomplete="off" autocapitalize="off" autocorrect="off" spellcheck="false">
+      <div class="type-feedback" id="type-feedback"></div>
+    </div>
+
+    <button class="primary-btn next-btn" id="next-btn" onclick="nextQuestion()">Дараах →</button>
+  </div>
+
+  <!-- RESULTS SCREEN -->
+  <div class="screen" id="screen-result">
+    <div class="result-hero">
+      <div class="result-title" id="result-title">Сайн байна!</div>
+      <div class="result-sub" id="result-sub">10-с 8 зөв хариулсан</div>
+    </div>
+
+    <div class="score-circle" id="score-circle" style="--pct:80">
+      <div class="num" id="score-num">80%</div>
+      <div class="lbl">ОНОО</div>
+    </div>
+
+    <div class="best-banner" id="best-banner" style="display:none;">Шинэ хамгийн өндөр оноо!</div>
+
+    <div class="result-stats">
+      <div class="s"><b id="res-correct">8</b><span>Зөв</span></div>
+      <div class="s"><b id="res-wrong">2</b><span>Буруу</span></div>
+      <div class="s" id="res-streak-box"><b id="res-streak">4</b><span>Дараалсан</span></div>
+    </div>
+
+    <div class="section-title">Дахин харах</div>
+    <div class="review-list" id="review-list"></div>
+
+    <div class="result-actions">
+      <button class="primary-btn" onclick="restartSame()">Дахин тоглох ↻</button>
+      <button class="ghost-btn" onclick="goHome()">Нүүр хуудас руу буцах</button>
+    </div>
+  </div>
+
+</div>
+
+<script>
+(function(){
+"use strict";
+
+var DATA = [{"ch": 1, "title": "Сургууль", "emoji": "🏫", "words": [["학교", "сургууль"], ["교실", "анги"], ["공부", "хичээл, сурлага"], ["물건", "эд зүйл"], ["책상", "ширээ"], ["의자", "сандал"], ["문", "хаалга"], ["창문", "цонх"], ["칠판", "самбар"], ["시계", "цаг"], ["가방", "цүнх"], ["볼펜", "үзэг"], ["책", "ном"], ["공책", "дэвтэр"], ["도서관", "номын сан"], ["기숙사", "дотуур байр"], ["학생식당", "сурагчийн хоолны газар"], ["체육관", "спорт заал"], ["사무실", "албан тасалгаа"], ["화장실", "бие засах өрөө"], ["무엇", "хэн, юу"], ["어디", "хаана"], ["한국어", "солонгос хэл"], ["영어", "англи хэл"], ["사진", "зураг"], ["사전", "толь бичиг"], ["크다", "том"], ["작다", "жижиг"], ["많다", "их"], ["적다", "бага"], ["쉽다", "амархан"], ["어렵다", "хэцүү"], ["재미있다", "сонирхолтой"], ["재미없다", "сонирхолгүй"], ["듣다", "сонсох"], ["읽다", "унших"], ["말하다", "ярих"], ["쓰다", "бичих"], ["있다", "байх"], ["없다", "байхгүй"], ["방", "өрөө"], ["휴대폰", "утас"], ["지갑", "түрийвч"], ["돈", "мөнгө"], ["학생증", "сурагчийн үнэмлэх"], ["서점", "номын дэлгүүр"], ["편의점", "24 цагийн дэлгүүр"], ["옷 가게", "хувцасны дэлгүүр"], ["지금", "одоо"], ["대학교", "их сургууль"], ["학생", "сурагч"], ["음식", "хоол"], ["싸다", "хямд"], ["비싸다", "үнэтэй"], ["수업", "хичээл"], ["사람", "хүн"], ["우체국", "шуудан"]]}, {"ch": 2, "title": "Гэр бүл, танилцах", "emoji": "👪", "words": [["가족", "гэр бүл"], ["직업", "ажил мэргэжил"], ["나라", "улс"], ["도시", "хот"], ["이름", "нэр"], ["취미", "хобби, сонирхол"], ["할아버지", "өвөө"], ["할머니", "эмээ"], ["외할아버지", "нагац өвөө"], ["외할머니", "нагац эмээ"], ["아버지", "аав"], ["어머니", "ээж"], ["오빠/형", "ах"], ["언니/누나", "эгч"], ["여자", "эмэгтэй"], ["남자", "эрэгтэй"], ["여동생", "эмэгтэй дүү"], ["남동생", "эрэгтэй дүү"], ["초등학교", "бага сургууль"], ["중학교", "дунд сургууль"], ["고등학교", "ахлах сургууль"], ["대학교", "их сургууль"], ["회사원", "компаний ажилтан"], ["은행원", "банкны ажилтан"], ["운동선수", "тамирчин"], ["가수", "дуучин"], ["요리사", "тогооч"], ["선생님", "багш"], ["일하다", "ажил хийх"], ["공부하다", "хичээл хийх"], ["가르치다", "заах"], ["보다", "үзэх, харах"], ["드라마", "драма"], ["빵", "талх"], ["먹다", "идэх"], ["음악", "дуу, хөгжим"], ["듣다", "сонсох"], ["커피", "кофи"], ["마시다", "уух"], ["친구", "найз"], ["만나다", "уулзах"], ["오늘", "өнөөдөр"], ["내일", "маргааш"], ["어제", "өчигдөр"], ["회사", "компани"], ["자동차", "машин"], ["사다", "худалдаж авах"], ["점심", "өдрийн хоол"], ["아침", "өглөө / өглөөний хоол"], ["저녁", "орой / оройн хоол"], ["커피숍", "кофишоп"], ["식당", "хоолны газар"], ["대학생", "оюутан"], ["사진을 찍다", "зураг дарах"], ["노래를 하다", "дуу дуулах"], ["쇼핑을 하다", "дэлгүүр хэсэх"], ["여행을 하다", "аялалд явах"], ["수영을 하다", "усанд сэлэх"], ["영화를 보다", "кино үзэх"], ["좋아하다", "дуртай байх"], ["싫어하다", "дургүй байх"], ["살다", "амьдрах"], ["영화배우", "кино жүжигчин"], ["빨리", "хурдан, түргэн"], ["주부", "гэрийн эзэгтэй"], ["고향", "төрсөн нутаг"], ["수학", "математик"], ["정말", "үнэхээр"], ["컴퓨터 게임", "компьютерийн тоглоом"], ["아주", "маш, их, тун"], ["꿈", "зүүд / мөрөөдөл"]]}, {"ch": 3, "title": "Огноо, гариг", "emoji": "📅", "words": [["날짜", "он сар өдөр"], ["요일", "гараг"], ["쉬는 날", "амардаг өдөр"], ["장소", "газар"], ["묻다", "асуух"], ["생일", "төрсөн өдөр"], ["자동차", "машин"], ["번호", "дугаар"], ["빌딩", "өндөр барилга"], ["버스", "автобус"], ["월", "сар"], ["일", "өдөр / ажил"], ["며칠", "хэд дэх өдөр"], ["친구를 만나다", "найзтайгаа уулзах"], ["등산하다", "ууланд гарах"], ["영화를 보다", "кино үзэх"], ["파티를 하다", "парти хийх"], ["쇼핑을 하다", "дэлгүүр хэсэх"], ["케이크", "бялуу"], ["노래방", "караокэ"], ["노래를 하다", "дуу дуулах"], ["여행을 하다", "аялах"], ["휴일", "амралтын өдөр"], ["주말", "долоо хоногын амралтын өдөр"], ["방학", "сургуулийн амралт"], ["어제", "өчигдөр"], ["지난주", "өнгөрсөн долоо хоног"], ["지난달", "өнгөрсөн сар"], ["작년", "өнгөрсөн жил"], ["내년", "дараа жил"], ["올해", "энэ жил"], ["극장/영화관", "кино театр"], ["서점", "номын дэлгүүр"], ["커피숍", "кофишоп"], ["공원", "цэцэрлэгт хүрээлэн"], ["백화점", "их дэлгүүр"], ["듣다", "сонсох"], ["걷다", "алхах"]]}, {"ch": 4, "title": "Хоолны газар", "emoji": "🍽️", "words": [["식당", "хоолны газар"], ["후식", "амттай зууш"], ["주문", "захиалга"], ["식사", "хоол"], ["음식", "хоол"], ["주문하다", "захиалах"], ["정하다", "товлох"], ["한식집", "солонгос хоолны газар"], ["중국집", "хятад хоолны газар"], ["일식집", "япон хоолны газар"], ["분식집", "бэлэн хоолны газар"], ["먹다", "идэх"], ["초밥", "суши"], ["맛있다", "амттай"], ["맛없다", "атмгүй"], ["맵다", "халуун ногоотой"], ["덥다", "халуун (биед мэдрэгдэх хэм)"], ["춥다", "хүйтэн (биед мэдрэгдэх хэм)"], ["쉽다", "амархан"], ["어렵다", "хэцүү, хүнд, бэрх"], ["가깝다", "ойрхон"], ["쉬다", "амрах"], ["방", "өрөө"], ["드리다", "өгөх (хүндэтгэл)"], ["교실", "анги"], ["마시다", "уух"], ["만나다", "уулзах"], ["숙제하다", "даалгавар хийх"], ["극장/영화관", "кино театр"], ["바다", "далай"], ["사다", "худалдаж авах"], ["물", "ус"], ["공부하다", "хичээл хийх"], ["농구하다", "сагс тоглох"], ["드시다", "идэх (хүндэтгэл)"], ["손님", "зочин"], ["녹차", "ногоон цай"], ["아이스크림", "зайрмаг"], ["자주", "байнга, дандаа"], ["사과", "алим / уучлал, хүлцэл"], ["주인", "эзэн"], ["친절하다", "эелдэг"], ["싸다", "хямд"], ["비싸다", "үнэтэй"], ["택시를 타다", "таксинд суух"], ["운동을 하다", "дасгал хийх"], ["영화를 보다", "кино үзэх"], ["시키다", "захиалах / даалгах, хийлгэх"], ["부모님", "эцэг эх"], ["채소", "хүнсний ногоо"], ["샐러드", "салат"], ["밥", "будаа / хоол"], ["한정식집", "солонгос үндэсний хоолны газар"], ["처음", "анх, эхэн, түрүүнд"], ["한옥", "солонгос дээр үеийн сууц"], ["반찬", "хачир"], ["놀라다", "айх, цочих, гайхах"], ["계속", "үргэлжлэн, үргэлжлэл"], ["갈비", "хавирга"], ["힘들다", "хэцүү"]]}, {"ch": 5, "title": "Өдрийн хуваарь", "emoji": "⏰", "words": [["하루", "нэг хоног"], ["일과", "өдөр тутмын ажил"], ["계획", "төлөвлөгөө"], ["새벽", "үүр"], ["아침", "өглөө, өглөөний хоол"], ["저녁", "орой, оройны хоол"], ["낮", "өдөр"], ["밤", "шөнө"], ["오전", "үдээс өмнө"], ["오후", "үдээс хойш"], ["내일", "маргааш"], ["이번 주말", "энэ долоо хоногын амралтын өдөр"], ["다음 주", "дараа долоо хоног"], ["다음 주말", "дараа долоо хоногын амралтын өдөр"], ["다음 달", "дараа сар"], ["지난 달", "өнгөрсөн сар"], ["내년", "дараа жил"], ["작년", "өнгөрсөн жил"], ["운동하다", "дасгал хийх"], ["반", "анги / тал, хагас"], ["콘서트", "концерт"], ["등산을 하다", "ууланд гарах"], ["부모님", "эцэг эх"], ["날씨", "цаг агаар"], ["축구를 하다", "хөл бөмбөг тоглох"], ["날씨가 덥다", "цаг агаар халуун байх"], ["수영장", "усан бассеин"], ["시간이 있다/없다", "цаг зав байх/байхгүй"], ["돈", "мөнгө"], ["몇", "хэд"], ["끝나다", "дуусах, төгсөх"], ["시험을 보다", "шалгалт өгөх"], ["인터넷 게임", "интернет тоглоом"], ["일어나다", "босох, сэрэх"], ["세수하다", "нүүр гар угаах"], ["아침/점심/저녁을 먹다", "өглөө/өдөр/оройны хоол идэх"], ["숙제하다", "даалгавар хийх"], ["요리하다", "хоол хийх"], ["잠을 자다", "унтах"], ["재미있다", "сонирхолтой"], ["재미없다", "сонирхолгүй"], ["피곤하다", "ядрах"], ["힘들다", "хүнд хэцүү байх"], ["기분이 좋다", "сэтгэл санаа сайхан байх"], ["바쁘다", "завгүй байх"], ["아프다", "өвдөх"], ["나쁘다", "муу, муухай"], ["슬프다", "гунигтай"], ["배가 고프다", "гэдэс өлсөх"], ["도서관", "номын сан"], ["청소를 하다", "цэвэрлэгээ хийх"], ["연습", "дасгал, бэлтгэл"], ["술", "архи"], ["이야기", "яриа, түүх"], ["출발", "хөдлөх, явах"], ["도착", "хүрэх (зорьсон газартаа)"], ["문화", "соёл"], ["경치", "байгалийн үзэмж"], ["아름답다", "үзэсгэлэнтэй байх"], ["구경하다", "үзэж сонирхох"], ["기다리다", "хүлээх"]]}, {"ch": 6, "title": "Дэлгүүр хэсэх", "emoji": "🛍️", "words": [["물건", "эд бараа"], ["구입하다", "худалдаж авах"], ["가게", "дэлгүүр"], ["쇼핑", "дэлгүүр хэсэх"], ["옷", "хувцас"], ["치마", "юбка"], ["바지", "өмд"], ["티셔츠", "подволк"], ["신발", "гутал"], ["구두", "ботинк"], ["운동화", "пүүз"], ["모자", "малгай"], ["가방", "цүнх"], ["지금", "одоо"], ["백화점", "их дэлгүүр"], ["게임을 하다", "тоглоом тоглох"], ["보내다", "илгээх"], ["책을 읽다", "ном унших"], ["우유", "сүү"], ["필통", "пинал"], ["비싸다", "үнэтэй"], ["싸다", "хямд"], ["많다", "их"], ["적다", "бага"], ["사과", "алим"], ["배", "лийр"], ["외국", "гадаад"], ["날씨", "цаг агаар"], ["수박", "тарвас"], ["오렌지", "оренж"], ["열쇠고리", "түлхүүрийн оосор"], ["인형", "хүүхэлдэй, чихмэл"], ["원피스", "палаж"], ["장미", "сарнай"], ["송이", "багц"], ["슈퍼마켓", "супермаркет"], ["옷을 입다", "хувцас өмсөх"], ["운동화를 신다", "пүүз өмсөх"], ["모자를 쓰다", "малгай өмсөх"], ["사다", "худалдаж авах"], ["팔다", "зарах"], ["길다", "урт байх"], ["짧다", "богино байх"], ["살다", "амьдрах"], ["알다", "мэдэх"], ["열다", "нээх"], ["멀다", "хол байх"], ["청바지", "жинсэн өмд"], ["멋있다", "янзтай"], ["찾다", "хайх, эрэх, олох"], ["반값", "тал үнэ"], ["최고", "хамгийн"], ["하얀색", "цагаан өнгө"], ["편하다", "тухтай байх"], ["디자인", "загвар"], ["걱정하다", "санаа зовох"], ["맞다", "таарах, тохирох"], ["색깔", "өнгө"], ["다르다", "өөр байх"], ["빨간색", "улаан өнгө"], ["마음에 들다", "сэтгэлд нийцэх"], ["노란색", "шар өнгө"], ["배달", "хүргэлт"]]}, {"ch": 7, "title": "Бие, найз нөхөд", "emoji": "🙋", "words": [["머리", "1.үс 2.толгой"], ["얼굴", "нүүр"], ["귀", "чих"], ["팔", "гар /мөрнөөс/"], ["손", "гар /бугуйнаас/"], ["눈", "нүд"], ["코", "хамар"], ["입", "ам"], ["다리", "хөл"], ["발", "хөл /шагайнаас/"], ["귀엽다", "эгдүүтэй, хөөрхөн"], ["멋있다", "янзтай, догь"], ["키가 크다", "өндөр нуруутай"], ["키가 작다", "намхан нуруутай"], ["머리가 길다", "үс урт"], ["머리가 짧다", "үс богино"], ["친절하다", "эелдэг, найрсаг"], ["똑똑하다", "ухаантай"], ["재미있다", "сонирхолтой"], ["재미없다", "сонирхолгүй"], ["남자친구", "найз залуу"], ["여자친구", "найз охин"], ["눈이 크다", "нүд том"], ["영화배우", "кино жүжигчин"], ["방학", "сурагчийн амралт"], ["자전거", "унадаг дугуй"], ["피곤하다", "ядрах"], ["자주", "байнга, дандаа"], ["일찍", "эрт"], ["축구를 하다", "хөл бөмбөг тоглох"], ["농구를 하다", "сагс тоглох"], ["테니스를 치다", "теннис тоглох"], ["태권도를 하다", "теквондо хийх"], ["피아노를 치다", "төгөлдөр хуур тоглох"], ["기타를 치다", "гитар тоглох"], ["춤을 추다", "бүжиг бүжиглэх"], ["노래를 하다", "дуу дуулах"], ["신문을 읽다", "сонин унших"], ["운동장", "спортын талбай"], ["노래방", "караоке"], ["연습하다", "бэлтгэл хийх"], ["기타 교실", "гитарын анги"], ["연주하다", "хөгжим тоглох"], ["태권도 도장", "теквондо заал"], ["태권도 도복", "теквондо хувцас"], ["발차기", "өшиглөх, тийрэх"], ["시작하다", "эхлэх"], ["계시다", "байх /хүндэтгэл/"], ["마음이 따뜻하다", "сэтгэл дулаахан"], ["가르치다", "заах"], ["되다", "болох"], ["유학", "гадаадах сурах"]]}, {"ch": 8, "title": "Утас, холбоо", "emoji": "📱", "words": [["전화", "утас"], ["메시지", "мессэж"], ["전화번호", "утасны дугаар"], ["전화를 하다", "утсаар ярих, утасдах"], ["전화를 받다", "утсаа авах"], ["통화하다", "утсаар ярих"], ["전화를 끊다", "утсаа таслах"], ["국제", "олон улс"], ["교육", "боловсрол"], ["문자 메시지", "текстэн мессэж"], ["음성 메시지", "дуут мессэж"], ["답장하다", "хариу өгөх"], ["시간이 있다", "цаг байх, зав байх"], ["자주", "байнга, данда"], ["생활", "амьдрал"], ["편지", "захиа, захидал"], ["비밀", "нууц"], ["이메일", "и-мэйл"], ["선물", "бэлэг"], ["칠판", "самбар"], ["소개하다", "танилцуулах"], ["이따가", "ингэс хийж байгаад"], ["전화를 걸다", "утсаар залгах"], ["일찍", "эрт"], ["문화", "соёл"], ["돌아가다", "1.буцаж очих 2.үхэх (хүндэтгэл)"], ["식사한다", "хооллох (хүндэтгэл)"], ["회의", "хурал"], ["연락하다", "холбоо барих"], ["모임", "уулзалт, цуглаан"], ["늦다", "хоцрох"], ["장소", "газар"], ["쌀", "будаа"], ["치킨집", "шарсан тахианы газар"], ["주스", "жүүс"], ["양념치킨", "амталсан шарсан тахиан мах"], ["배달", "хүргэлт"], ["그때", "тэр үед"], ["찾다", "хайх"], ["약속", "амлалт / уулзалт"], ["줍다", "түүх"], ["그날", "тэр өдөр"], ["물건", "эд бараа"], ["사주다", "авч өгөх"], ["우체국", "шуудан"], ["박물관", "музей"], ["입장료", "тасалбарын үнэ"], ["안내", "танилцуулга"], ["외국", "гадаад"], ["외국인", "гадаад хүн"]]}, {"ch": 9, "title": "Тээвэр, зам", "emoji": "🚌", "words": [["교통", "зам тээвэр"], ["위치", "байршил, байр суурь"], ["이동", "шилжилт хөдөлгөөн"], ["교통수단", "зам тээврийн хэрэгсэл"], ["이용하다", "ашиглах, хэрэглэх"], ["길", "зам"], ["위", "дээр"], ["아래", "доор"], ["왼쪽", "зүүн тал"], ["오른쪽", "баруун тал"], ["앞", "урд"], ["뒤", "хойно"], ["건너편", "эсрэг тал"], ["옆", "хажуу тал"], ["사이", "хооронд"], ["안", "дотор"], ["밖", "гадна"], ["경철서", "цагдаагын газар"], ["신호등", "гэрлэн дохио"], ["횡단보도", "явган хүний гарц"], ["지하철역", "метроны буудал"], ["버스정류장", "автобусны буудал"], ["사거리", "дөрвөн замын уулзвах"], ["쭉", "тувт"], ["근처", "ойролцоо, ойр орчим"], ["건너다", "1.гатлах,гатлаж гарах 2.дамжих"], ["약국", "эмийн сан"], ["은행", "банк"], ["시청", "хотын захиргаа"], ["가로수", "гудамжны таримал мод"], ["국립", "улсын"], ["도서관", "номын сан"], ["지하철", "метро"], ["비행기", "онгоц"], ["오토바이", "мотоцикл"], ["타다", "1.унах,суух 2.шатах 3.хийх, найруулах"], ["내리다", "буух"], ["호선", "шугам (метро)"], ["출구", "гарах хаалга, үүд"], ["입구", "орох хаалга"], ["교통카드", "метроны карт"], ["갈아타다", "дамжиж суух"], ["나가는 곳", "гарах гарц"], ["걸어서 가다", "алхаад явах"], ["시간", "цаг"], ["걸리다", "1.Зарцуулах 2.өлгөгдөх"], ["복잡하다", "төвөгтэй, ээдрээтэй"], ["빠르다", "хурдан байх"], ["모르다", "мэдэхгүй байх"], ["다르다", "өөр байх"], ["자르다", "хэрчих, тайрах, хайчлах"], ["고르다", "сонгох, шилэх"], ["부르다", "1.дуудах,дуулах 2.цадах, дүүрэх"], ["쯤", "орчим (хэмжээ)"], ["공항", "онгоцны буудал"], ["공항버스", "нисэхийн автобус"], ["시장", "зах"], ["고속버스", "хурдны автобус"], ["아마", "магадгүй"], ["배", "завь, лийр, гэдэс"], ["전철", "метро"], ["기차", "галт тэрэг"], ["미용실", "үсчин"], ["고속버스터미널", "хурдны автобусны терминал"], ["동해", "Зүүн далай"], ["맛집", "хоолны газар (арай амттай)"], ["찜닭", "жигнэсэн тахиа (хоолны нэр)"]]}, {"ch": 10, "title": "Амлалт, уулзалт", "emoji": "🤝", "words": [["약속을 하다", "амлалт өгөх"], ["변경하다", "өөрчлөх, солих"], ["약속을 지키다", "амлалтаа биелүүлэх"], ["약속이 있다", "болзоо, амлалт байх"], ["약속이 없다", "болзоо, амлалт байхгүй байх"], ["시간이 있다", "цаг зав байх"], ["시간이 없다", "цаг зав байхгүй байх"], ["초대하다", "урих, залах"], ["준비하다", "бэлтгэх"], ["사 오다", "худалдаж авч ирэх"], ["축하하다", "баяр хүргэх"], ["가져오다", "авч ирэх, авчрах"], ["가져가다", "авч явах"], ["고기", "мах"], ["돼지고기", "гахайн мах"], ["닭고기", "тахианы мах"], ["양고기", "хонины мах"], ["소고기", "үхрийн мах"], ["여권", "гадаад пасспорт"], ["동아리", "дугуйлан, бүлгэм"], ["노래를 부르다", "Дуу дуулах"], ["부탁하다", "гуйх, хүсэх"], ["약속을 취소하다", "амлалтаа цуцлах"], ["약속 장소", "уулзах газар"], ["약속 날짜", "уулзах өдөр"], ["약속 시간", "уулзах цаг"], ["정하다", "товлох"], ["바꾸다", "солих"], ["일이 생기다", "ажил гарч ирэх"], ["생기다", "1.үүсэх, бий болох 2.тохиолдох, болох"], ["모임이 있다/없다", "уулзалт байх/байхгүй"], ["늦게 일어나다", "оройтож сэрэх"], ["회사", "компани"], ["옛날", "эрт цаг, эрт үе"], ["호랑이", "бар"], ["웅덩이", "шалбааг"], ["깊다", "гүн, гүнзгий"], ["구하다", "1.хайх, олох 2.аврах, туслах"], ["잡아먹다", "барьж идэх"], ["대답하다", "хариулах"], ["토끼", "туулай"], ["절대", "маш, зайлшгүй"], ["무섭다", "аймаар, аймшигтай"]]}];
+
+var LS_KEY = "vocabQuizStateV1";
+var LS_MASTERY_KEY = "vocabMasteryV1";
+
+function loadState(){
+  try{
+    var raw = localStorage.getItem(LS_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return {best:0, played:0};
+}
+function saveState(s){
+  try{ localStorage.setItem(LS_KEY, JSON.stringify(s)); }catch(e){}
+}
+var state = loadState();
+
+function loadMastery(){
+  try{
+    var raw = localStorage.getItem(LS_MASTERY_KEY);
+    if(raw) return JSON.parse(raw);
+  }catch(e){}
+  return {};
+}
+function saveMastery(){
+  try{ localStorage.setItem(LS_MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
+}
+var mastery = loadMastery(); // { "<ch>::<kr>": true } -> true means answered correctly, won't repeat
+
+function wordId(ch, kr){ return ch + "::" + kr; }
+
+var selectedChapters = "all"; // "all" or array of ch numbers
+var selectedMode = "mcq";
+
+var quizQuestions = [];
+var qIndex = 0;
+var correctCount = 0;
+var wrongCount = 0;
+var streak = 0;
+var bestStreak = 0;
+var answered = false;
+var reviewLog = [];
+
+function shuffle(arr){
+  var a = arr.slice();
+  for(var i=a.length-1;i>0;i--){
+    var j = Math.floor(Math.random()*(i+1));
+    var t=a[i]; a[i]=a[j]; a[j]=t;
+  }
+  return a;
+}
+function pick(arr,n){
+  return shuffle(arr).slice(0,n);
+}
+
+// ---------- HOME SCREEN SETUP ----------
+var chGrid = document.getElementById("ch-grid");
+var totalWords = 0;
+DATA.forEach(function(ch){ totalWords += ch.words.length; });
+document.getElementById("all-count").textContent = totalWords + " үг";
+
+// Hand-drawn minimal line icons per chapter theme (stroke uses currentColor).
+var CHAPTER_ICONS = [
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M10 4 3 6.6v8L10 17l7-2.4v-8L10 4Z"/><path d="M3 6.6 10 9l7-2.4"/><path d="M10 9v8"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="7" cy="6.5" r="2.3"/><circle cx="14" cy="7.5" r="2"/><path d="M2.5 16c.4-3 2.1-4.6 4.5-4.6s4.1 1.6 4.5 4.6"/><path d="M11.8 11.6c2 .2 3.4 1.7 3.7 4.4"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="4.5" width="14" height="12" rx="2"/><path d="M3 8.5h14"/><path d="M7 2.5v3.5M13 2.5v3.5"/><circle cx="7.2" cy="12" r=".9" fill="currentColor" stroke="none"/><circle cx="10.5" cy="12" r=".9" fill="currentColor" stroke="none"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 3v6a2 2 0 0 0 2 2v6"/><path d="M5 3v5M7 3v5"/><path d="M14 3c-1.4 0-2.5 1.8-2.5 5s1.1 3.5 1.1 3.5V17"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="10" r="7"/><path d="M10 6v4l3 2"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M5 7V5.5a3 3 0 0 1 6 0V7"/><rect x="3.3" y="7" width="13.4" height="9.5" rx="2"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><circle cx="10" cy="6.5" r="3"/><path d="M4 17c0-3.6 2.7-5.5 6-5.5s6 1.9 6 5.5"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="6" y="2.5" width="8" height="15" rx="2"/><path d="M9 15h2"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.5" y="6" width="15" height="8" rx="2.5"/><path d="M5.5 14v1.8M14.5 14v1.8"/><circle cx="6" cy="10" r=".9" fill="currentColor" stroke="none"/><circle cx="14" cy="10" r=".9" fill="currentColor" stroke="none"/></svg>',
+  '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3 11.5 7 8h6l4 3.5"/><path d="M4.5 11.5v3.8M15.5 11.5v3.8"/><path d="M8 15.3h4"/></svg>'
+];
+var CHAPTER_COLORS = ["#7c5cff","#ff5c9a","#3bb7ff","#ff9f43","#2fd480","#e0b84b","#ff6b6b","#39c7b4","#9b8cff","#f2a93b"];
+
+function masteredCountInChapter(ch){
+  var n = 0;
+  ch.words.forEach(function(w){ if(mastery[wordId(ch.ch, w[0])]) n++; });
+  return n;
+}
+
+function renderChGrid(){
+  chGrid.innerHTML = "";
+  DATA.forEach(function(ch, idx){
+    var card = document.createElement("div");
+    card.className = "ch-card";
+    if(selectedChapters !== "all" && selectedChapters.indexOf(ch.ch) !== -1){
+      card.classList.add("selected");
+    }
+    card.dataset.ch = ch.ch;
+    var mCount = masteredCountInChapter(ch);
+    var color = CHAPTER_COLORS[idx % CHAPTER_COLORS.length];
+    card.innerHTML =
+      '<div class="em" style="background:'+color+'22;color:'+color+';">'+CHAPTER_ICONS[idx % CHAPTER_ICONS.length]+'</div>'+
+      '<div class="ti">'+ch.ch+'-р бүлэг</div>'+
+      '<div class="n">'+ch.title+' · '+ch.words.length+' үг</div>'+
+      (mCount > 0 ? '<div class="mastery">'+mCount+' сурсан</div>' : '');
+    card.onclick = function(){ toggleChapter(ch.ch, card); };
+    chGrid.appendChild(card);
+  });
+}
+renderChGrid();
+
+function selectAll(){
+  selectedChapters = "all";
+  document.getElementById("all-card").classList.add("selected");
+  document.querySelectorAll(".ch-card").forEach(function(c){ c.classList.remove("selected"); });
+  updateStartBtn();
+}
+function toggleChapter(chNum, el){
+  document.getElementById("all-card").classList.remove("selected");
+  if(selectedChapters === "all") selectedChapters = [];
+  var idx = selectedChapters.indexOf(chNum);
+  if(idx === -1){
+    selectedChapters.push(chNum);
+    el.classList.add("selected");
+  } else {
+    selectedChapters.splice(idx,1);
+    el.classList.remove("selected");
+  }
+  if(selectedChapters.length === 0) selectAll();
+  updateStartBtn();
+}
+function selectMode(mode){
+  selectedMode = mode;
+  document.getElementById("mode-row").querySelectorAll(".mode-btn").forEach(function(b){
+    b.classList.toggle("selected", b.dataset.mode === mode);
+  });
+}
+var selectedLength = 20; // 20 or "all"
+function selectLength(len){
+  selectedLength = len;
+  document.getElementById("length-row").querySelectorAll(".mode-btn").forEach(function(b){
+    b.classList.toggle("selected", String(b.dataset.len) === String(len));
+  });
+  updateStartBtn();
+}
+function quizLenFor(poolLen){
+  if(selectedLength === "all") return poolLen;
+  return Math.min(selectedLength, poolLen);
+}
+function updateStartBtn(){
+  var btn = document.getElementById("start-btn");
+  var pool = getPool();
+  var n = quizLenFor(pool.length);
+  btn.textContent = n + " асуулттай тест эхлэх →";
+  btn.disabled = pool.length < 4;
+}
+
+function getPool(){
+  var words = [];
+  if(selectedChapters === "all"){
+    DATA.forEach(function(ch){
+      ch.words.forEach(function(w){ words.push({kr:w[0], mn:w[1], ch:ch.ch, chTitle:ch.title, id:wordId(ch.ch,w[0])}); });
+    });
+  } else {
+    DATA.forEach(function(ch){
+      if(selectedChapters.indexOf(ch.ch) !== -1){
+        ch.words.forEach(function(w){ words.push({kr:w[0], mn:w[1], ch:ch.ch, chTitle:ch.title, id:wordId(ch.ch,w[0])}); });
+      }
+    });
+  }
+  return words;
+}
+
+// Picks words for a quiz: unmastered/wrong words first (so a word already
+// answered correctly won't repeat), topping up with mastered words only if
+// there aren't enough fresh ones left.
+function buildQuizPool(n){
+  var pool = getPool();
+  var fresh = pool.filter(function(w){ return !mastery[w.id]; });
+  var done = pool.filter(function(w){ return mastery[w.id]; });
+  var picked = pick(fresh, n);
+  if(picked.length < n){
+    picked = picked.concat(pick(done, n - picked.length));
+  }
+  return shuffle(picked);
+}
+
+function totalMasteredCount(){
+  var n = 0;
+  DATA.forEach(function(ch){
+    ch.words.forEach(function(w){ if(mastery[wordId(ch.ch, w[0])]) n++; });
+  });
+  return n;
+}
+
+function refreshHomeStats(){
+  document.getElementById("stat-best").textContent = (state.best||0) + "%";
+  document.getElementById("stat-played").textContent = state.played||0;
+  document.getElementById("stat-mastered").textContent = totalMasteredCount();
+  renderChGrid();
+}
+refreshHomeStats();
+updateStartBtn();
+
+// ---------- SCREEN NAV ----------
+function showScreen(id){
+  document.querySelectorAll(".screen").forEach(function(s){ s.classList.remove("active"); });
+  document.getElementById(id).classList.add("active");
+}
+function goHome(){
+  showScreen("screen-home");
+  refreshHomeStats();
+  updateStartBtn();
+}
+function exitQuiz(){
+  if(qIndex > 0 && !confirm("Тестээ зогсоох уу? Явц хадгалагдахгүй.")) return;
+  goHome();
+}
+
+// ---------- QUIZ LOGIC ----------
+function startQuiz(){
+  var pool = getPool();
+  if(pool.length < 4) return;
+  var n = quizLenFor(pool.length);
+  quizQuestions = buildQuizPool(n);
+  qIndex = 0;
+  correctCount = 0;
+  wrongCount = 0;
+  streak = 0;
+  bestStreak = 0;
+  reviewLog = [];
+  showScreen("screen-quiz");
+  renderQuestion();
+}
+
+function restartSame(){
+  startQuiz();
+}
+
+function allMnOptions(excludeKr){
+  var all = [];
+  DATA.forEach(function(ch){
+    ch.words.forEach(function(w){
+      if(w[0] !== excludeKr) all.push(w[1]);
+    });
+  });
+  return all;
+}
+
+function renderQuestion(){
+  answered = false;
+  var total = quizQuestions.length;
+  var q = quizQuestions[qIndex];
+  document.getElementById("progress-fill").style.width = Math.round((qIndex/total)*100)+"%";
+  document.getElementById("streak-badge").textContent = "Дараалал " + streak;
+  document.getElementById("q-tag").textContent = q.ch + "-р бүлэг · " + (qIndex+1) + "/" + total;
+
+  // direction: 70% kr->mn, 30% mn->kr for variety
+  var reverse = Math.random() < 0.25;
+  q._reverse = reverse;
+  document.getElementById("q-prompt").textContent = reverse ? "Солонгос үгийг сонго" : "Монгол утгыг сонго";
+  document.getElementById("q-word").textContent = reverse ? q.mn : q.kr;
+  document.getElementById("q-word").style.fontSize = (reverse ? q.mn.length : q.kr.length) > 14 ? "26px" : "38px";
+
+  var nextBtn = document.getElementById("next-btn");
+  nextBtn.classList.remove("show");
+
+  if(selectedMode === "mcq"){
+    document.getElementById("options-wrap").style.display = "flex";
+    document.getElementById("type-wrap").style.display = "none";
+    renderMCQ(q, reverse);
+  } else {
+    document.getElementById("options-wrap").style.display = "none";
+    document.getElementById("type-wrap").style.display = "block";
+    nextBtn.textContent = "Шалгах →";
+    nextBtn.classList.add("show");
+    renderType(q, reverse);
+  }
+}
+
+function renderMCQ(q, reverse){
+  var wrap = document.getElementById("options-wrap");
+  wrap.innerHTML = "";
+  var correctVal = reverse ? q.kr : q.mn;
+  var distractPool = reverse ? allKrOptions(q.kr) : allMnOptions(q.kr);
+  var distractors = pick(distractPool.filter(function(v){return v!==correctVal;}), 3);
+  var options = shuffle([correctVal].concat(distractors));
+  var letters = ["A","B","C","D"];
+
+  options.forEach(function(optVal, i){
+    var el = document.createElement("div");
+    el.className = "opt";
+    el.innerHTML = '<span class="opt-inner"><span class="k">'+letters[i]+'</span>'+escapeHtml(optVal)+'</span>';
+    el.onclick = function(){
+      if(answered) return;
+      answered = true;
+      var isCorrect = optVal === correctVal;
+      handleAnswer(isCorrect, correctVal, optVal);
+      Array.prototype.forEach.call(wrap.children, function(c){
+        var cVal = c.dataset.val;
+      });
+      Array.prototype.forEach.call(wrap.children, function(c, idx2){
+        if(options[idx2] === correctVal){ c.classList.add("correct"); }
+        else if(c === el){ c.classList.add("wrong"); }
+        else { c.classList.add("dim"); }
+      });
+      document.getElementById("next-btn").classList.add("show");
+    };
+    wrap.appendChild(el);
+  });
+}
+
+function allKrOptions(excludeKr){
+  var all = [];
+  DATA.forEach(function(ch){
+    ch.words.forEach(function(w){
+      if(w[0] !== excludeKr) all.push(w[0]);
+    });
+  });
+  return all;
+}
+
+function escapeHtml(s){
+  var d = document.createElement("div");
+  d.textContent = s;
+  return d.innerHTML;
+}
+
+function renderType(q, reverse){
+  var input = document.getElementById("type-input");
+  input.value = "";
+  input.className = "type-input";
+  input.disabled = false;
+  document.getElementById("type-feedback").innerHTML = "";
+  input.placeholder = reverse ? "Солонгос үгийг бич..." : "Монгол утгыг бич...";
+  setTimeout(function(){ input.focus(); }, 50);
+
+  input.onkeydown = function(e){
+    if(e.key === "Enter" && !answered) checkType();
+  };
+}
+
+function checkType(){
+  if(answered) return;
+  answered = true;
+  var q = quizQuestions[qIndex];
+  var reverse = q._reverse;
+  var correctVal = reverse ? q.kr : q.mn;
+  var input = document.getElementById("type-input");
+  var userVal = input.value.trim();
+
+  var norm = function(s){ return s.toLowerCase().replace(/[\s\/,.()]/g,""); };
+  var isCorrect = norm(userVal) !== "" && norm(correctVal).indexOf(norm(userVal)) !== -1 && norm(userVal).length >= Math.max(2, norm(correctVal).length * 0.5);
+  // simpler: accept if normalized strings share enough overlap; fallback exact-ish check
+  isCorrect = norm(userVal) === norm(correctVal) || (norm(userVal).length>1 && norm(correctVal).split(",")[0].indexOf(norm(userVal))!==-1);
+
+  input.disabled = true;
+  input.className = "type-input " + (isCorrect ? "correct" : "wrong");
+  var fb = document.getElementById("type-feedback");
+  if(isCorrect){
+    fb.innerHTML = "Зөв!";
+  } else {
+    fb.innerHTML = "Буруу. Зөв хариу: <b>"+escapeHtml(correctVal)+"</b>";
+  }
+  handleAnswer(isCorrect, correctVal, userVal);
+  var nb = document.getElementById("next-btn");
+  nb.textContent = "Дараах →";
+  nb.classList.add("show");
+}
+
+// add a "check" trigger for type mode via next-btn relabel
+var origNextBtn = document.getElementById("next-btn");
+
+function handleAnswer(isCorrect, correctVal, userVal){
+  var q = quizQuestions[qIndex];
+  if(isCorrect){
+    correctCount++;
+    streak++;
+    if(streak > bestStreak) bestStreak = streak;
+    mastery[q.id] = true;
+  } else {
+    wrongCount++;
+    streak = 0;
+    delete mastery[q.id];
+  }
+  saveMastery();
+  document.getElementById("streak-badge").textContent = "Дараалал " + streak;
+  reviewLog.push({
+    kr: q.kr, mn: q.mn, correct: isCorrect
+  });
+}
+
+function nextQuestion(){
+  if(selectedMode === "type" && !answered){
+    checkType();
+    return;
+  }
+  qIndex++;
+  if(qIndex >= quizQuestions.length){
+    finishQuiz();
+  } else {
+    renderQuestion();
+  }
+}
+
+// override next-btn click for type mode (check first, then advance on second tap)
+document.getElementById("next-btn").addEventListener("click", function(){
+  // handled in nextQuestion already via onclick attr; kept for type-mode double-duty
+});
+
+function finishQuiz(){
+  document.getElementById("progress-fill").style.width = "100%";
+  var total = quizQuestions.length;
+  var pct = Math.round((correctCount/total)*100);
+
+  state.played = (state.played||0) + 1;
+  var isNewBest = pct > (state.best||0);
+  if(isNewBest) state.best = pct;
+  saveState(state);
+
+  document.getElementById("best-banner").style.display = isNewBest ? "block" : "none";
+
+  var title = "Дуусгалаа!";
+  if(pct === 100){ title="Төгс оноо!"; }
+  else if(pct >= 80){ title="Маш сайн байна!"; }
+  else if(pct >= 50){ title="Сайн оролдлого!"; }
+  else { title="Дасгал хийвэл дээжирнэ!"; }
+
+  document.getElementById("result-title").textContent = title;
+  document.getElementById("result-sub").textContent = total + "-с " + correctCount + " зөв хариулсан";
+  document.getElementById("score-circle").style.setProperty("--pct", pct);
+  document.getElementById("score-num").textContent = pct + "%";
+  document.getElementById("res-correct").textContent = correctCount;
+  document.getElementById("res-wrong").textContent = wrongCount;
+  document.getElementById("res-streak").textContent = bestStreak;
+
+  var reviewWrap = document.getElementById("review-list");
+  reviewWrap.innerHTML = "";
+  reviewLog.forEach(function(r){
+    var row = document.createElement("div");
+    row.className = "review-item";
+    row.innerHTML =
+      '<span class="mark '+(r.correct?"ok":"no")+'"></span>'+
+      '<span class="w">'+escapeHtml(r.kr)+'</span>'+
+      '<span class="m">'+escapeHtml(r.mn)+'</span>';
+    reviewWrap.appendChild(row);
+  });
+
+  showScreen("screen-result");
+}
+
+window.selectAll = selectAll;
+window.selectMode = selectMode;
+window.selectLength = selectLength;
+window.startQuiz = startQuiz;
+window.restartSame = restartSame;
+window.goHome = goHome;
+window.exitQuiz = exitQuiz;
+window.nextQuestion = nextQuestion;
+
+})();
+</script>
+
+</body>
+</html>
