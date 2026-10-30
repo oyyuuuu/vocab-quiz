@@ -4,15 +4,17 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <title>Үг шалгалт</title>
-<meta name="description" content="1-р номын 1-10-р бүлгийн 562 үгээр тоглоомоор шалгалт өгөөрэй">
+<meta name="description" content="Солонгос хэлний 1-р номын үг, дүрмийн шалгалт">
+
 <meta property="og:title" content="Үг шалгалт">
-<meta property="og:description" content="1-р номын 1-10-р бүлгийн 562 үгээр тоглоомоор шалгалт өгөөрэй">
+<meta property="og:description" content="Солонгос хэлний 1-р номын үг, дүрмийн шалгалт">
 <meta property="og:image" content="https://oyyuuuu.github.io/vocab-quiz/og-image.png">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://oyyuuuu.github.io/vocab-quiz/">
+
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="Үг шалгалт">
-<meta name="twitter:description" content="1-р номын 1-10-р бүлгийн 562 үгээр тоглоомоор шалгалт өгөөрэй">
+<meta name="twitter:description" content="Солонгос хэлний 1-р номын үг, дүрмийн шалгалт">
 <meta name="twitter:image" content="https://oyyuuuu.github.io/vocab-quiz/og-image.png">
 
 <style>
@@ -432,6 +434,146 @@
   }
 
   input::placeholder{color:var(--muted);}
+
+  /* GRAMMAR */
+  .gram-entry{
+    display:flex;align-items:center;gap:12px;
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    padding:11px 14px;
+    margin-bottom:12px;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  .gram-entry:active{transform:scale(.985);}
+  .gram-entry .gi{
+    width:32px;height:32px;border-radius:10px;flex-shrink:0;
+    background:rgba(255,159,67,.16);color:#ff9f43;
+    display:flex;align-items:center;justify-content:center;
+  }
+  .gram-entry .gi svg{width:18px;height:18px;display:block;}
+  .gram-entry .gt{flex:1;min-width:0;}
+  .gram-entry .gt b{display:block;font-size:14px;}
+  .gram-entry .gt span{font-size:11.5px;color:var(--muted);}
+  .gram-entry .ga{color:var(--muted);font-size:16px;}
+
+  .gtop{display:flex;align-items:center;gap:10px;margin-bottom:12px;}
+  .gtitle{font-weight:800;font-size:17px;}
+
+  details.gch{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:14px;
+    margin-bottom:8px;
+    overflow:hidden;
+  }
+  details.gch summary{
+    list-style:none;
+    display:flex;align-items:center;gap:10px;
+    padding:12px 14px;
+    cursor:pointer;
+    -webkit-tap-highlight-color:transparent;
+  }
+  details.gch summary::-webkit-details-marker{display:none;}
+  details.gch summary::after{
+    content:"+";margin-left:auto;color:var(--muted);font-size:20px;font-weight:600;
+  }
+  details.gch[open] summary::after{content:"\2212";}
+  .gnum{
+    width:30px;height:30px;border-radius:10px;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-weight:800;font-size:14px;
+  }
+  .gsum{display:flex;flex-direction:column;min-width:0;}
+  .gsum b{font-size:14px;}
+  .gsum i{font-style:normal;font-size:11.5px;color:var(--muted);line-height:1.3;}
+  .gitem{
+    padding:12px 14px 14px;
+    border-top:1px solid rgba(255,255,255,.06);
+  }
+  .gpat{font-size:19px;font-weight:800;margin-bottom:4px;}
+  .gdesc{font-size:13px;line-height:1.5;color:var(--muted);margin-bottom:8px;}
+  .gform{
+    background:var(--bg2);
+    border:1px solid rgba(255,255,255,.06);
+    border-radius:10px;
+    padding:4px 10px;
+    margin-bottom:8px;
+  }
+  .frow{
+    display:grid;
+    grid-template-columns:1fr 1.15fr 1.3fr;
+    gap:8px;
+    padding:7px 0;
+    font-size:12.5px;
+    border-bottom:1px solid rgba(255,255,255,.05);
+  }
+  .frow:last-child{border-bottom:none;}
+  .frow .a{color:var(--muted);}
+  .frow .b{font-weight:700;}
+  .frow .c{font-weight:700;color:var(--good);}
+  .gex > div{padding:3px 0;font-size:13px;line-height:1.45;}
+  .gex .k{font-weight:700;display:block;}
+  .gex .m{color:var(--muted);font-size:12px;display:block;}
+
+  .qcard .gsub{font-size:13px;color:var(--muted);margin-top:4px;}
+  .gexp{
+    margin-top:12px;
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:14px;
+    padding:12px 14px;
+    margin-bottom:12px;
+  }
+  .gexp .eh{font-size:12px;font-weight:800;margin-bottom:4px;}
+  .gexp .eh.ok{color:var(--good);}
+  .gexp .eh.no{color:var(--bad);}
+  .gexp .es{font-size:16px;font-weight:700;margin-bottom:4px;}
+  .gexp .ew{font-size:12.5px;color:var(--muted);line-height:1.45;}
+  .review-item.g{flex-wrap:wrap;}
+  .sound-btn{display:inline-flex;align-items:center;justify-content:center;}
+  .sound-btn svg{width:18px;height:18px;display:block;}
+  .gex .k,.gexp .es{cursor:pointer;}
+  .gex .k::after,.gexp .es::after{content:" \25B6";font-size:10px;color:var(--muted);}
+  #gpane-practice .primary-btn{width:100%;display:block;}
+
+  /* MENU + FLASHCARDS */
+  .gram-entry.big{padding:16px 16px;margin-bottom:12px;}
+  .gram-entry.big .gi{width:44px;height:44px;border-radius:14px;}
+  .gram-entry.big .gi svg{width:22px;height:22px;}
+  .gram-entry.big .gt b{font-size:16px;margin-bottom:2px;}
+  .gram-entry.big .gt span{font-size:12.5px;line-height:1.4;display:block;}
+  .gram-entry .gi.words{background:rgba(124,92,255,.16);color:#7c5cff;}
+  #wpane-flash .primary-btn{width:100%;display:block;}
+  .fcard{
+    background:var(--card);
+    border:1px solid rgba(255,255,255,.08);
+    border-radius:var(--radius);
+    flex:1;min-height:320px;
+    display:flex;flex-direction:column;align-items:center;justify-content:center;
+    text-align:center;
+    padding:34px 20px;
+    position:relative;
+    cursor:pointer;
+    margin-bottom:0;
+    user-select:none;-webkit-user-select:none;
+    -webkit-tap-highlight-color:transparent;
+    animation:flipin .22s ease;
+  }
+  .fcard.back{border-color:var(--accent);background:var(--card-hi);}
+  .fcard .tag{
+    position:absolute;top:12px;left:14px;
+    font-size:10.5px;color:var(--muted);
+    background:var(--card-hi);padding:4px 9px;border-radius:99px;
+  }
+  .fcard.back .tag{background:var(--card);}
+  .fcard .sound-btn{position:absolute;bottom:22px;left:50%;transform:translateX(-50%);margin:0;background:var(--card-hi);border:none;width:46px;height:46px;border-radius:50%;color:var(--text);cursor:pointer;-webkit-tap-highlight-color:transparent;}
+  .fcard.back .sound-btn{background:var(--card);}
+  .fcard .word{font-size:38px;font-weight:800;line-height:1.25;word-break:keep-all;}
+  .fhint{font-size:11px;color:var(--muted);text-transform:uppercase;letter-spacing:.08em;margin-bottom:12px;}
+  @keyframes flipin{from{transform:rotateY(70deg);opacity:.35;}to{transform:none;opacity:1;}}
+  .fcard{touch-action:none;-webkit-touch-callout:none;overscroll-behavior:contain;}
 </style>
 </head>
 <body>
@@ -442,13 +584,38 @@
     <div class="brand"><span class="dot">한</span>Үг шалгалт</div>
   </header>
 
-  <!-- HOME SCREEN -->
-  <div class="screen active" id="screen-home">
+  <!-- MENU (landing) -->
+  <div class="screen active" id="screen-menu">
     <div class="hero">
-      <h1>Солонгос үгээ шалгаарай!</h1>
-      <p>1-р номын 1-10-р бүлгийн үгсээс асуулт гарна. Бүлгээ сонгоод эсвэл бүгдээс холимог тестээ эхлүүл.</p>
+      <h1>1-р ном</h1>
+      <p>Үг, дүрмээ давтаад шалгалтаар сорь. Доороос сонго.</p>
     </div>
 
+    <div class="gram-entry big" onclick="openWords('test')">
+      <div class="gi words"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><rect x="2.8" y="5.5" width="11.5" height="9.5" rx="2"/><path d="M5.5 3.5h9.2a2.5 2.5 0 0 1 2.5 2.5v7"/><path d="M6 9.5h5M6 12h3"/></svg></div>
+      <div class="gt"><b>Үг ба дасгал</b><span>Flashcard, үгийн тест · 1-10-р бүлэг</span></div>
+      <div class="ga">→</div>
+    </div>
+
+    <div class="gram-entry big" onclick="openGrammar()">
+      <div class="gi"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4.5A1.5 1.5 0 0 1 5.5 3H16v12H5.5A1.5 1.5 0 0 0 4 16.5v-12Z"/><path d="M4 16.5A1.5 1.5 0 0 0 5.5 18H16"/><path d="M8 7h5M8 10h4"/></svg></div>
+      <div class="gt"><b>Дүрэм ба дасгал</b><span>Дүрэм унших, өгүүлбэрийн алдаа шалгах · 1-7-р бүлэг</span></div>
+      <div class="ga">→</div>
+    </div>
+  </div>
+
+  <!-- WORDS HUB -->
+  <div class="screen" id="screen-home">
+    <div class="gtop">
+      <div class="close-btn" onclick="goMenu()">←</div>
+      <div class="gtitle">Үг ба дасгал</div>
+    </div>
+    <div class="mode-row" id="wtab-row">
+      <div class="mode-btn selected" data-tab="test" onclick="wTab('test')">Тест</div>
+      <div class="mode-btn" data-tab="flash" onclick="wTab('flash')">Flashcard</div>
+    </div>
+
+    <div id="wpane-test">
     <div class="section-title">Бүлэг сонгох</div>
     <div class="all-card selected" id="all-card" onclick="selectAll()">
       <div>
@@ -479,6 +646,70 @@
       <div class="stat-pill"><b id="stat-played">0</b><span>Тоглосон</span></div>
       <div class="stat-pill"><b id="stat-mastered">0</b><span>Сурсан үг</span></div>
     </div>
+    </div>
+
+    <div id="wpane-flash" style="display:none;">
+      <div class="section-title">Бүлэг сонгох</div>
+      <div class="all-card selected" id="f-all-card" onclick="fSelectAll()">
+        <div>
+          <div class="l">Холимог (бүх бүлэг)</div>
+          <div class="r" id="f-all-count">562 үг</div>
+        </div>
+        <div class="r">→</div>
+      </div>
+      <div class="ch-grid" id="f-ch-grid"></div>
+
+      <div class="section-title">Ямар үгс</div>
+      <div class="mode-row" id="f-scope-row">
+        <div class="mode-btn selected" data-scope="new" onclick="fSelectScope('new')">Давтах үгс</div>
+        <div class="mode-btn" data-scope="all" onclick="fSelectScope('all')">Бүгд</div>
+      </div>
+
+      <div class="section-title">Эхэлж харагдах тал</div>
+      <div class="mode-row" id="f-side-row">
+        <div class="mode-btn selected" data-side="kr" onclick="fSelectSide('kr')">Солонгос</div>
+        <div class="mode-btn" data-side="mn" onclick="fSelectSide('mn')">Монгол</div>
+      </div>
+
+      <button class="primary-btn" id="f-start-btn" onclick="fStart()">Flashcard эхлэх →</button>
+
+      <div class="stats-strip">
+        <div class="stat-pill"><b id="f-stat-known">0</b><span>Мэдсэн үг</span></div>
+        <div class="stat-pill"><b id="f-stat-left">0</b><span>Үлдсэн</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- FLASHCARD -->
+  <div class="screen" id="screen-flash">
+    <div class="quiz-top">
+      <div class="close-btn" onclick="fExit()">✕</div>
+      <div class="progress-track"><div class="progress-fill" id="f-progress"></div></div>
+      <div class="streak-badge" id="f-count">0/0</div>
+    </div>
+
+    <div class="fcard" id="f-card">
+      <div class="tag" id="f-tag">1-р бүлэг</div>
+      <div class="word" id="f-word"></div>
+      <button class="sound-btn" id="f-sound" onclick="fSpeak()" aria-label="Сонсох" title="Сонсох"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8v4h3l4 3.5v-11L6.5 8h-3Z"/><path d="M13.5 7.5a3.5 3.5 0 0 1 0 5"/><path d="M15.7 5.5a6.5 6.5 0 0 1 0 9"/></svg></button>
+    </div>
+  </div>
+
+  <!-- FLASHCARD DONE -->
+  <div class="screen" id="screen-fdone">
+    <div class="result-hero">
+      <div class="result-title">Давтлага дууслаа!</div>
+      <div class="result-sub" id="f-done-sub"></div>
+    </div>
+    <div class="result-stats">
+      <div class="s"><b id="f-done-known">0</b><span>Мэдсэн</span></div>
+      <div class="s"><b id="f-done-again">0</b><span>Дахин үзсэн</span></div>
+    </div>
+    <div class="result-actions">
+      <button class="primary-btn" onclick="fRestart()">Дахин эхлэх ↻</button>
+      <button class="ghost-btn" onclick="openWords('flash')">Flashcard хэсэг рүү буцах</button>
+      <button class="ghost-btn" onclick="goMenu()">Нүүр хуудас руу буцах</button>
+    </div>
   </div>
 
   <!-- QUIZ SCREEN -->
@@ -493,6 +724,7 @@
       <div class="tag" id="q-tag">1-р бүлэг</div>
       <div class="prompt" id="q-prompt">Монгол утгыг сонго</div>
       <div class="word" id="q-word">학교</div>
+      <button class="sound-btn" id="sound-btn" onclick="speakCurrent()" aria-label="Сонсох" title="Сонсох"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8v4h3l4 3.5v-11L6.5 8h-3Z"/><path d="M13.5 7.5a3.5 3.5 0 0 1 0 5"/><path d="M15.7 5.5a6.5 6.5 0 0 1 0 9"/></svg></button>
     </div>
 
     <div class="options" id="options-wrap"></div>
@@ -534,6 +766,91 @@
     </div>
   </div>
 
+  <!-- GRAMMAR HOME -->
+  <div class="screen" id="screen-grammar">
+    <div class="gtop">
+      <div class="close-btn" onclick="goMenu()">←</div>
+      <div class="gtitle">Дүрэм ба дасгал</div>
+    </div>
+    <div class="mode-row" id="gtab-row">
+      <div class="mode-btn selected" data-tab="read" onclick="gTab('read')">Дүрэм</div>
+      <div class="mode-btn" data-tab="practice" onclick="gTab('practice')">Дасгал</div>
+    </div>
+
+    <div id="gpane-read"></div>
+
+    <div id="gpane-practice" style="display:none;">
+      <div class="section-title">Бүлэг сонгох</div>
+      <div class="all-card selected" id="g-all-card" onclick="gSelectAll()">
+        <div>
+          <div class="l">Холимог (1-7-р бүлэг)</div>
+          <div class="r" id="g-all-count">0 асуулт</div>
+        </div>
+        <div class="r">→</div>
+      </div>
+      <div class="ch-grid" id="g-ch-grid"></div>
+
+      <button class="primary-btn" id="g-start-btn" onclick="gStart()">Дасгал эхлэх →</button>
+
+      <div class="stats-strip">
+        <div class="stat-pill"><b id="g-stat-best">0%</b><span>Хамгийн өндөр</span></div>
+        <div class="stat-pill"><b id="g-stat-played">0</b><span>Хийсэн</span></div>
+        <div class="stat-pill"><b id="g-stat-mastered">0</b><span>Зөв хариулсан</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GRAMMAR QUIZ -->
+  <div class="screen" id="screen-gquiz">
+    <div class="quiz-top">
+      <div class="close-btn" onclick="gExit()">✕</div>
+      <div class="progress-track"><div class="progress-fill" id="g-progress-fill"></div></div>
+      <div class="streak-badge" id="g-streak-badge">Дараалал 0</div>
+    </div>
+
+    <div class="qcard">
+      <div class="tag" id="g-q-tag">1-р бүлэг</div>
+      <div class="prompt" id="g-q-prompt">Хоосон зайг нөх</div>
+      <div class="word" id="g-q-word"></div>
+      <div class="gsub" id="g-q-sub"></div>
+    </div>
+
+    <div class="options" id="g-options"></div>
+    <div class="gexp" id="g-exp" style="display:none;"></div>
+
+    <button class="primary-btn next-btn" id="g-next-btn" onclick="gNext()">Дараах →</button>
+  </div>
+
+  <!-- GRAMMAR RESULTS -->
+  <div class="screen" id="screen-gresult">
+    <div class="result-hero">
+      <div class="result-title" id="g-result-title">Сайн байна!</div>
+      <div class="result-sub" id="g-result-sub"></div>
+    </div>
+
+    <div class="score-circle" id="g-score-circle" style="--pct:80">
+      <div class="num" id="g-score-num">80%</div>
+      <div class="lbl">ОНОО</div>
+    </div>
+
+    <div class="best-banner" id="g-best-banner" style="display:none;">Шинэ хамгийн өндөр оноо!</div>
+
+    <div class="result-stats">
+      <div class="s"><b id="g-res-correct">0</b><span>Зөв</span></div>
+      <div class="s"><b id="g-res-wrong">0</b><span>Буруу</span></div>
+      <div class="s"><b id="g-res-streak">0</b><span>Дараалсан</span></div>
+    </div>
+
+    <div class="section-title">Дахин харах</div>
+    <div class="review-list" id="g-review-list"></div>
+
+    <div class="result-actions">
+      <button class="primary-btn" onclick="gRestart()">Дахин хийх ↻</button>
+      <button class="ghost-btn" onclick="gBack()">Дүрмийн хэсэг рүү буцах</button>
+      <button class="ghost-btn" onclick="goMenu()">Нүүр хуудас руу буцах</button>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -567,7 +884,54 @@ function loadMastery(){
 function saveMastery(){
   try{ localStorage.setItem(LS_MASTERY_KEY, JSON.stringify(mastery)); }catch(e){}
 }
-var mastery = loadMastery(); // { "<ch>::<kr>": true } -> true means answered correctly, won't repeat
+var mastery = migrateRecs(loadMastery()); // { "<ch>::<kr>": {c: correct count, t: last time} }
+
+// ---- Learning records: a word counts as learned after several correct answers,
+// and a learned word comes back for a quick review every 7 days. A wrong answer resets it. ----
+var LEARN_NEED = 3;   // word test: correct answers needed to count as learned
+var FLASH_NEED = 2;   // flashcard: "known" swipes needed
+var GRAM_NEED = 2;    // grammar exercises
+var REVIEW_MS = 7 * 24 * 60 * 60 * 1000;
+function migrateRecs(map){
+  // older saves stored `true` -> treat as one correct answer so far
+  Object.keys(map).forEach(function(k){
+    if(map[k] === true) map[k] = {c:1, t:Date.now()};
+  });
+  return map;
+}
+function isLearned(rec, need){ return !!rec && rec.c >= need; }
+function isDue(rec){ return !!rec && (Date.now() - (rec.t || 0)) >= REVIEW_MS; }
+function needsWork(rec, need){ return !rec || rec.c < need || isDue(rec); }
+function recCorrect(map, id){
+  var r = map[id];
+  if(!r || typeof r !== "object") r = {c:0, t:0};
+  r.c = Math.min(99, r.c + 1);
+  r.t = Date.now();
+  map[id] = r;
+}
+function recWrong(map, id){ map[id] = {c:0, t:Date.now()}; }
+// Pick n items: ~60% from items already being worked on (wrong / in progress / due for review),
+// the rest brand-new; learned & not-yet-due items only fill the gap if nothing else is left.
+function pickByNeed(pool, getRec, need, n){
+  var review = [], fresh = [], rest = [];
+  pool.forEach(function(x){
+    var r = getRec(x);
+    if(!needsWork(r, need)) rest.push(x);
+    else if(r) review.push(x);
+    else fresh.push(x);
+  });
+  var out = pick(review, Math.min(Math.ceil(n * 0.6), review.length));
+  var left = n - out.length;
+  out = out.concat(pick(fresh, Math.min(left, fresh.length)));
+  left = n - out.length;
+  if(left > 0){
+    var more = review.filter(function(x){ return out.indexOf(x) === -1; });
+    out = out.concat(pick(more, Math.min(left, more.length)));
+  }
+  left = n - out.length;
+  if(left > 0) out = out.concat(pick(rest, Math.min(left, rest.length)));
+  return shuffle(out);
+}
 
 function wordId(ch, kr){ return ch + "::" + kr; }
 
@@ -618,7 +982,7 @@ var CHAPTER_COLORS = ["#7c5cff","#ff5c9a","#3bb7ff","#ff9f43","#2fd480","#e0b84b
 
 function masteredCountInChapter(ch){
   var n = 0;
-  ch.words.forEach(function(w){ if(mastery[wordId(ch.ch, w[0])]) n++; });
+  ch.words.forEach(function(w){ if(isLearned(mastery[wordId(ch.ch, w[0])], LEARN_NEED)) n++; });
   return n;
 }
 
@@ -710,20 +1074,13 @@ function getPool(){
 // answered correctly won't repeat), topping up with mastered words only if
 // there aren't enough fresh ones left.
 function buildQuizPool(n){
-  var pool = getPool();
-  var fresh = pool.filter(function(w){ return !mastery[w.id]; });
-  var done = pool.filter(function(w){ return mastery[w.id]; });
-  var picked = pick(fresh, n);
-  if(picked.length < n){
-    picked = picked.concat(pick(done, n - picked.length));
-  }
-  return shuffle(picked);
+  return pickByNeed(getPool(), function(w){ return mastery[w.id]; }, LEARN_NEED, n);
 }
 
 function totalMasteredCount(){
   var n = 0;
   DATA.forEach(function(ch){
-    ch.words.forEach(function(w){ if(mastery[wordId(ch.ch, w[0])]) n++; });
+    ch.words.forEach(function(w){ if(isLearned(mastery[wordId(ch.ch, w[0])], LEARN_NEED)) n++; });
   });
   return n;
 }
@@ -744,8 +1101,7 @@ function showScreen(id){
 }
 function goHome(){
   showScreen("screen-home");
-  refreshHomeStats();
-  updateStartBtn();
+  wTab("test");
 }
 function exitQuiz(){
   if(qIndex > 0 && !confirm("Тестээ зогсоох уу? Явц хадгалагдахгүй.")) return;
@@ -772,6 +1128,113 @@ function restartSame(){
   startQuiz();
 }
 
+// ---------- Listening (Korean text-to-speech) ----------
+function canSpeak(){
+  return !!(window.speechSynthesis && window.SpeechSynthesisUtterance);
+}
+function speakKo(text){
+  if(!canSpeak() || !text) return;
+  try{
+    var clean = String(text).replace(/___/g, " ").replace(/\//g, " ").replace(/~/g, " ");
+    window.speechSynthesis.cancel();
+    var u = new SpeechSynthesisUtterance(clean);
+    u.lang = "ko-KR";
+    u.rate = 0.85;
+    var voices = window.speechSynthesis.getVoices ? window.speechSynthesis.getVoices() : [];
+    for(var i=0;i<voices.length;i++){
+      if(/^ko/i.test(voices[i].lang)){ u.voice = voices[i]; break; }
+    }
+    window.speechSynthesis.speak(u);
+  }catch(e){}
+}
+function speakCurrent(){
+  var q = quizQuestions[qIndex];
+  if(q) speakKo(q.kr);
+}
+// tap a Korean example / answer sentence in the grammar section to hear it
+document.addEventListener("click", function(e){
+  var t = e.target;
+  while(t && t !== document){
+    if(t.classList && (t.classList.contains("k") && t.parentNode && t.parentNode.parentNode && t.parentNode.parentNode.classList.contains("gex"))){
+      speakKo(t.textContent); return;
+    }
+    if(t.classList && t.classList.contains("es")){ speakKo(t.textContent); return; }
+    t = t.parentNode;
+  }
+});
+
+// ---------- Confusing (look-alike) distractors ----------
+// Distractors are chosen to resemble the correct answer (same word type, similar
+// length, shared syllables, same chapter) so they can't be ruled out by form alone.
+// Candidates whose meaning overlaps the correct one are skipped, so every
+// question still has exactly one right answer.
+var STOP_TOK = ["байх","хийх","байна","болох","байхгүй"];
+function mnTokens(s){
+  var m = String(s).toLowerCase().match(/[а-яёөү]+/g) || [];
+  return m.filter(function(t){ return t.length >= 4 && STOP_TOK.indexOf(t) === -1; });
+}
+function krClass(kr){
+  if(/하다$/.test(kr)) return "hada";
+  if(/다$/.test(kr)) return "da";
+  return "noun";
+}
+var ALL_ITEMS = [];
+DATA.forEach(function(ch){
+  ch.words.forEach(function(w){
+    ALL_ITEMS.push({kr:w[0], mn:w[1], ch:ch.ch, cls:krClass(w[0]), tok:mnTokens(w[1])});
+  });
+});
+function sharedCount(a, b){
+  var sa = {};
+  for(var i=0;i<a.length;i++){
+    var c = a.charAt(i);
+    if(c===" "||c==="다"||c==="하"||c==="을"||c==="를"||c==="/") continue;
+    sa[c] = true;
+  }
+  var seen = {}, n = 0;
+  for(var j=0;j<b.length;j++){
+    var d = b.charAt(j);
+    if(sa[d] && !seen[d]){ seen[d] = true; n++; }
+  }
+  return n;
+}
+function stemShare(ta, tb){
+  for(var i=0;i<ta.length;i++){
+    for(var j=0;j<tb.length;j++){
+      if(ta[i].slice(0,4) === tb[j].slice(0,4)) return true;
+    }
+  }
+  return false;
+}
+function pickDistractors(q, reverse){
+  var correctVal = reverse ? q.kr : q.mn;
+  var qi = {cls:krClass(q.kr), tok:mnTokens(q.mn)};
+  var scored = [];
+  ALL_ITEMS.forEach(function(c){
+    if(c.kr === q.kr || c.mn === q.mn) return;
+    var overlap = qi.tok.some(function(t){ return c.tok.indexOf(t) !== -1; });
+    if(overlap) return;
+    var val = reverse ? c.kr : c.mn;
+    if(val === correctVal) return;
+    var s = 0;
+    if(c.cls === qi.cls){ s += 4; if(c.cls === "hada") s += 1; }
+    if(c.ch === q.ch) s += 1.5;
+    var diff = Math.abs(val.length - correctVal.length);
+    s += reverse ? (3 - Math.min(3, diff)) : (3 - Math.min(3, diff/4));
+    s += Math.min(2, sharedCount(q.kr, c.kr)) * 2;
+    if(stemShare(qi.tok, c.tok)) s += 2;
+    s += Math.random() * 2.5;
+    scored.push({val:val, s:s});
+  });
+  scored.sort(function(a,b){ return b.s - a.s; });
+  var out = [], used = {};
+  used[correctVal] = true;
+  for(var i=0;i<scored.length && out.length<3;i++){
+    if(!used[scored[i].val]){ used[scored[i].val] = true; out.push(scored[i].val); }
+  }
+  return out;
+}
+
 function allMnOptions(excludeKr){
   var all = [];
   DATA.forEach(function(ch){
@@ -791,11 +1254,15 @@ function renderQuestion(){
   document.getElementById("q-tag").textContent = q.ch + "-р бүлэг · " + (qIndex+1) + "/" + total;
 
   // direction: 70% kr->mn, 30% mn->kr for variety
-  var reverse = Math.random() < 0.25;
+  // typing mode: always Mongolian -> write Korean only
+  var reverse = selectedMode === "type" ? true : Math.random() < 0.25;
   q._reverse = reverse;
-  document.getElementById("q-prompt").textContent = reverse ? "Солонгос үгийг сонго" : "Монгол утгыг сонго";
+  document.getElementById("q-prompt").textContent = selectedMode === "type" ? "Солонгосоор бич" : (reverse ? "Солонгос үгийг сонго" : "Монгол утгыг сонго");
   document.getElementById("q-word").textContent = reverse ? q.mn : q.kr;
   document.getElementById("q-word").style.fontSize = (reverse ? q.mn.length : q.kr.length) > 14 ? "26px" : "38px";
+
+  // listen button: hidden when the Korean word would be revealed (answer), shown after answering
+  document.getElementById("sound-btn").style.display = (reverse || !canSpeak()) ? "none" : "inline-flex";
 
   var nextBtn = document.getElementById("next-btn");
   nextBtn.classList.remove("show");
@@ -817,8 +1284,7 @@ function renderMCQ(q, reverse){
   var wrap = document.getElementById("options-wrap");
   wrap.innerHTML = "";
   var correctVal = reverse ? q.kr : q.mn;
-  var distractPool = reverse ? allKrOptions(q.kr) : allMnOptions(q.kr);
-  var distractors = pick(distractPool.filter(function(v){return v!==correctVal;}), 3);
+  var distractors = pickDistractors(q, reverse);
   var options = shuffle([correctVal].concat(distractors));
   var letters = ["A","B","C","D"];
 
@@ -908,15 +1374,19 @@ var origNextBtn = document.getElementById("next-btn");
 
 function handleAnswer(isCorrect, correctVal, userVal){
   var q = quizQuestions[qIndex];
+  if(canSpeak()){
+    document.getElementById("sound-btn").style.display = "inline-flex";
+    speakKo(q.kr);
+  }
   if(isCorrect){
     correctCount++;
     streak++;
     if(streak > bestStreak) bestStreak = streak;
-    mastery[q.id] = true;
+    recCorrect(mastery, q.id);
   } else {
     wrongCount++;
     streak = 0;
-    delete mastery[q.id];
+    recWrong(mastery, q.id);
   }
   saveMastery();
   document.getElementById("streak-badge").textContent = "Дараалал " + streak;
@@ -984,6 +1454,751 @@ function finishQuiz(){
   showScreen("screen-result");
 }
 
+// ---------- GRAMMAR: DATA ----------
+var GRAMMAR = [
+  {ch:1, title:"책입니다 · 숙제가 많습니다", items:[
+    {p:"입니까? / 입니다", d:"Нэр үгийн ард залгаж өгүүлэхүүн болгоно. 입니다 — өгүүлэх, 입니까? — асуух. Албан ёсны (격식체) хэлбэр.",
+     ex:[["이것은 책입니다.","Энэ бол ном."],["한국어 책입니까?","Солонгос ном уу?"]]},
+    {p:"무엇 / 어디", d:"무엇 — мэдэхгүй зүйл (юу), 어디 — мэдэхгүй газар (хаана).",
+     ex:[["이것은 무엇입니까?","Энэ юу вэ?"],["화장실이 어디입니까?","Бие засах өрөө хаана вэ?"]]},
+    {p:"이/가", d:"Нэр үгийн ард залгаж үйлдэл, төлөвийн субъектийг заана.",
+     f:[["받침 ○","+ 이","책이"],["받침 ×","+ 가","시계가"]],
+     ex:[["책상이 있습니다.","Ширээ байна."]]},
+    {p:"-ㅂ/습니다", d:"Одоо цагийн үйлдэл, төлөв, баримтыг эелдэг албан ёсоор хэлнэ.",
+     f:[["받침 ○","+ -습니다","먹습니다"],["받침 ×","+ -ㅂ니다","갑니다"]],
+     ex:[["저는 학교에 갑니다.","Би сургууль руу явна."]]},
+    {p:"에 있다/없다", d:"에 — газар, байрыг заана. 있다/없다 — хүн, амьтан, эд зүйл тэнд байх/байхгүйг илэрхийлнэ.",
+     ex:[["가방이 교실에 있습니다.","Цүнх ангид байна."]]},
+    {p:"하고", d:"Нэр үгийн ард залгаж өмнөх, хойдох нэрийг ижил түвшинд холбоно (ба, болон).",
+     ex:[["연필하고 공책이 있습니다.","Харандаа болон дэвтэр байна."]]}
+  ]},
+  {ch:2, title:"어머니는 음악을 가르칩니다 · 언니를 만나고 싶습니다", items:[
+    {p:"을/를", d:"Нэр үгийн ард залгаж үйлдэл шууд нөлөөлөх объектыг заана (-ыг, -ийг).",
+     f:[["받침 ○","+ 을","빵을"],["받침 ×","+ 를","사과를"]],
+     ex:[["저는 빵을 먹습니다.","Би талх иднэ."]]},
+    {p:"-ㅂ/습니다", d:"Үйл үг, тэмдэг нэрийн ард. Одоо цагийн үйлдэл, баримтыг эелдэгээр хэлнэ.",
+     f:[["받침 ○","+ -습니다","먹습니다"],["받침 ×","+ -ㅂ니다","갑니다"]]},
+    {p:"에서", d:"Нэр үгийн ард. Үйлдэл хийгдэж буй газрыг заана (-д).",
+     ex:[["어머니는 학교에서 음악을 가르칩니다.","Ээж сургуульд хөгжим заадаг."]]},
+    {p:"-고 싶다", d:"Үйл үгийн ард. Тухайн үйлдлийг хийхийг хүсэж буйг илэрхийлнэ (-маар байна).",
+     f:[["받침 ○ / ×","+ -고 싶다","먹고 싶다 / 가고 싶다"]],
+     ex:[["언니를 만나고 싶습니다.","Эгчтэйгээ уулзмаар байна."]]},
+    {p:"이/가 아니다", d:"Нэр үгийн ард. Баримт, агуулгыг үгүйсгэнэ (биш).",
+     f:[["받침 ○","+ 이 아니다","학생이 아니다"],["받침 ×","+ 가 아니다","가수가 아니다"]]}
+  ]},
+  {ch:3, title:"생일이 언제예요? · 토요일에 북한산에 갔어요", items:[
+    {p:"에", d:"Нэр үгийн ард. Цаг хугацааг заана (-д).",
+     ex:[["토요일에 북한산에 갔어요.","Бямба гарагт Бүкхан ууланд явсан."]]},
+    {p:"-아/어요", d:"Эелдэг (두루높임) өгүүлэх, асуух, захих, санал болгох өгүүлбэрийн төгсгөл.",
+     f:[["ㅏ, ㅗ","+ -아요","앉아요 / 만나요"],["ㅏ, ㅗ-оос бусад","+ -어요","먹어요 / 마셔요"],["-하다","+ -해요","말해요 / 일해요"]]},
+    {p:"-았/었-", d:"Өнгөрсөн цагийг заана.",
+     f:[["ㅏ, ㅗ","+ -았-","앉았어요 / 만났어요"],["ㅏ, ㅗ-оос бусад","+ -었-","먹었어요 / 마셨어요"],["-하다","+ -했-","말했어요 / 일했어요"]]},
+    {p:"-에 가다/오다", d:"Нэр үгийн ард. Очих газар, чиглэлийг заана.",
+     ex:[["북한산에 갔어요.","Бүкхан ууланд явсан."]]},
+    {p:"하고", d:"Нэр үгийн ард. Хэн нэгэнтэй хамт үйлдэл хийхийг заана (-тай).",
+     ex:[["서준하고 갔어요.","Сожүнтэй хамт явсан."]]}
+  ]},
+  {ch:4, title:"우리 뭘 먹으러 갈까요? · 김밥이 맛있어서 손님들이 많이 시켜요", items:[
+    {p:"-(으)세요", d:"Үйл үгийн ард. Тайлбар, асуулт, тушаал, хүсэлтийг хүндэтгэлтэй хэлнэ.",
+     f:[["받침 ○","+ -으세요","읽으세요"],["받침 ×","+ -세요","주세요"]]},
+    {p:"-ㄹ/을까요?", d:"Үйл үгийн ард. Хамт хийхийг санал болгох асуулт (-х уу?).",
+     f:[["받침 ○","+ -을까요?","먹을까요?"],["받침 ×","+ -ㄹ까요?","마실까요?"]]},
+    {p:"-(으)러 가다/오다", d:"Үйл үгийн ард. Ямар нэг зүйл хийхээр өөр газар явахыг илэрхийлнэ (-хаар).",
+     f:[["받침 ○","+ -으러 가다","찾으러 가다"],["받침 ×","+ -러 가다","만나러 가다"]]},
+    {p:"-아/어서", d:"Үйл үг, тэмдэг нэрийн ард. Шалтгаан, үндэслэлийг заана (-болохоор).",
+     f:[["ㅏ, ㅗ","+ -아서","앉아서 / 좋아서"],["ㅏ, ㅗ-оос бусад","+ -어서","먹어서 / 맛있어서"],["-하다","+ -해서","좋아해서 / 친절해서"]]},
+    {p:"도", d:"Нэр үгийн ард. Өмнө байгаа зүйлд өөр зүйл нэмэх, оруулахыг заана (-ч бас).",
+     ex:[["녹차도 마셔요.","Ногоон цай ч бас уудаг."]]}
+  ]},
+  {ch:5, title:"친구하고 인사동에 갈 거예요 · 숙제를 하고 친구를 만나요", items:[
+    {p:"-(으)면", d:"Үйл үг, тэмдэг нэрийн ард. Хойдох үгийн нөхцөл, үндэслэл болно (-вал).",
+     f:[["받침 ○","+ -으면","먹으면"],["받침 ×","+ -면","크면"],["ㄹ받침","+ -면","놀면"]]},
+    {p:"-ㄹ/을 거예요", d:"Үйл үгийн ард. Ярьж буй хүний төлөвлөгөө, хүсэл зоригийг заана (-х болно).",
+     f:[["받침 ○","+ -을 거예요","읽을 거예요"],["받침 ×","+ -ㄹ 거예요","갈 거예요"],["ㄹ받침","+ -거예요","만들 거예요"]]},
+    {p:"부터 ~ 까지", d:"Цагийн нэрийн ард. Эхлэх цагаас дуусах цаг хүртэлх хугацааг заана (-аас ... хүртэл).",
+     ex:[["9시부터 1시까지 수업이 있어요.","9-өөс 1 цаг хүртэл хичээлтэй."]]},
+    {p:"-고", d:"Үйл үгийн ард. Өмнөх, хойдох үйлдэл дарааллаар болохыг заана (-аад).",
+     ex:[["숙제를 하고 친구를 만나요.","Даалгавраа хийчихээд найзтайгаа уулзана."]]},
+    {p:"-(으)면서", d:"Үйл үгийн ард. Хоёр ба түүнээс дээш үйлдэл зэрэг болохыг заана (-ж байгаад, -саар).",
+     f:[["받침 ○","+ -으면서","읽으면서"],["받침 ×","+ -면서","마시면서"],["ㄹ받침","+ -면서","만들면서"]]}
+  ]},
+  {ch:6, title:"사과가 좀 비싸지만 맛있어요 · 한번 입어 보세요", items:[
+    {p:"-지 않다 / 안~", d:"Үйл үг, тэмдэг нэрийн ард. Өмнөх үйлдэл, төлөвийг үгүйсгэнэ.",
+     f:[["Үйл үг, тэмдэг нэр","+ -지 않다","읽지 않다 / 예쁘지 않다"],["Өмнө нь","안 + үйл үг","안 가요"]],
+     ex:[["오렌지는 비싸지 않아요.","Оренж үнэтэй биш."]]},
+    {p:"-지만", d:"Өмнөх зүйлийг зөвшөөрч, түүний эсрэг буюу өөр зүйл нэмэхэд хэрэглэнэ (-ч гэсэн, гэвч).",
+     f:[["Үйл үг, тэмдэг нэр","+ -지만","먹지만 / 가지만"],["Нэр үг 받침 ○","+ 이지만","회사원이지만"],["Нэр үг 받침 ×","+ -지만","가수지만"]],
+     ex:[["사과가 비싸지만 맛있어요.","Алим үнэтэй ч амттай."]]},
+    {p:"-네요", d:"Өөрийн биеэр мэдэрч шинээр мэдсэн зүйлдээ гайхах, эсвэл таамаглалаа хэлэхэд хэрэглэнэ (-юм аа).",
+     f:[["받침 ○ / ×","+ -네요","입네요 / 크네요"],["ㄹ받침","ㄹ хасаад + -네요","파네요 (팔다)"]]},
+    {p:"-아/어 보다", d:"Үйл үгийн ард. Туршиж үзэх, эсвэл өмнө нь хийж үзсэн туршлагыг заана (-ж үзэх).",
+     f:[["ㅏ, ㅗ","+ -아 보다","앉아 보다 / 만나 보다"],["ㅏ, ㅗ-оос бусад","+ -어 보다","읽어 보다 / 마셔 보다"],["-하다","+ -해 보다","말해 보다 / 전화해 보다"]]}
+  ]},
+  {ch:7, title:"제 여자 친구는 키가 크고 예뻐요 · 자전거를 탈 수 있어요", items:[
+    {p:"-고", d:"Үйл үг, тэмдэг нэрийн ард. Тэнцүү хоёр ба түүнээс дээш баримтыг жагсаахад хэрэглэнэ (ба, -ж).",
+     ex:[["키가 크고 예뻐요.","Өндөр бас хөөрхөн."]]},
+    {p:"-(으)면 좋겠다", d:"Үйл үг, тэмдэг нэрийн ард. Хүсэл, горьдлого; бодит байдлаас өөр болоосой гэсэн хүслийг заана (-вал сайхан байна).",
+     f:[["받침 ○","+ -으면 좋겠다","읽으면 좋겠다"],["받침 ×","+ -면 좋겠다","가면 좋겠다"],["ㄹ받침","+ -면 좋겠다","만들면 좋겠다"]],
+     ex:[["저도 여자 친구가 있으면 좋겠어요.","Надад ч найз охин байвал сайхан юм."]]},
+    {p:"-ㄹ/을 수 있다", d:"Үйл үгийн ард. Тухайн үйлдлийг хийх боломжтой, чадах гэсэн утга.",
+     f:[["받침 ○","+ -을 수 있다","읽을 수 있다"],["받침 ×","+ -ㄹ 수 있다","갈 수 있다"],["ㄹ받침","+ -수 있다","만들 수 있다"]],
+     ex:[["자전거를 탈 수 있어요.","Дугуй унаж чадна."]]},
+    {p:"-아/어서", d:"Үйл үгийн ард. Өмнөх, хойдох үйлдэл дарааллаар явагдахыг заана (-аад, -ж).",
+     f:[["ㅏ, ㅗ","+ -아서","앉아서 / 만나서"],["ㅏ, ㅗ-оос бусад","+ -어서","써서 / 만들어서"],["-하다","+ -해서","도착해서 / 이용해서"]],
+     ex:[["한강 공원에 가서 자전거를 타요.","Ханган цэцэрлэгт очоод дугуй унана."]]}
+  ]}
+];
+
+// t:"fill" -> s (sentence with ___), mn, c (correct), w (3 wrong), why
+// t:"err"  -> bad (wrong sentence), fix, ok (3 correct sentences), why
+var GQ = [
+  // ===== Chapter 1 =====
+  {ch:1,t:"fill",s:"이것은 책___.",mn:"Энэ бол ном.",c:"입니다",w:["입니까","입니이다","에서"],why:"Нэр үгийн ард 입니다 залгаж өгүүлэх өгүүлбэр болгоно. Асуух бол 입니까?"},
+  {ch:1,t:"fill",s:"이것은 한국어 책___?",mn:"Энэ солонгос ном уу?",c:"입니까",w:["입니다","합니다","있습니다"],why:"Асуух өгүүлбэр тул 입니까? хэрэглэнэ."},
+  {ch:1,t:"fill",s:"시계___ 있습니다.",mn:"Цаг байна.",c:"가",w:["이","을","를"],why:"시계 — 받침 байхгүй тул 가."},
+  {ch:1,t:"fill",s:"책상___ 있습니다.",mn:"Ширээ байна.",c:"이",w:["가","를","에서"],why:"책상 — 받침(ㅇ) байгаа тул 이."},
+  {ch:1,t:"fill",s:"가방이 교실___ 있습니다.",mn:"Цүнх ангид байна.",c:"에",w:["에서","을","하고"],why:"에 있다/없다 — хаана байгааг заана."},
+  {ch:1,t:"fill",s:"저는 학교에 ___.",mn:"Би сургууль руу явна.",c:"갑니다",w:["갑습니다","가습니다","감니다"],why:"가다 — 받침 байхгүй тул -ㅂ니다: 갑니다."},
+  {ch:1,t:"fill",s:"교실에 책이 ___.",mn:"Ангид ном байна.",c:"있습니다",w:["있니다","있읍니다","있입니다"],why:"있다 — 받침 бий тул -습니다."},
+  {ch:1,t:"fill",s:"연필___ 공책이 있습니다.",mn:"Харандаа болон дэвтэр байна.",c:"하고",w:["에","에서","를"],why:"하고 — хоёр нэр үгийг холбоно (ба, болон)."},
+  {ch:1,t:"err",bad:"가방가 있습니다.",fix:"가방이 있습니다.",ok:["책이 있습니다.","시계가 있습니다.","의자가 있습니다."],why:"가방 — 받침(ㅇ) байгаа тул 이."},
+  {ch:1,t:"err",bad:"도서관에 갑습니다.",fix:"도서관에 갑니다.",ok:["학교에 갑니다.","교실에 있습니다.","문이 큽니다."],why:"가다 — 받침 байхгүй тул -ㅂ니다."},
+  {ch:1,t:"err",bad:"이것은 가방이입니다.",fix:"이것은 가방입니다.",ok:["이것은 책입니다.","이것은 시계입니다.","이것은 사전입니다."],why:"입니다 нь нэр үгийн ард шууд залгана, 이/가 нэмэхгүй."},
+  {ch:1,t:"err",bad:"숙제가 많읍니다.",fix:"숙제가 많습니다.",ok:["창문이 큽니다.","교실이 작습니다.","한국어가 어렵습니다."],why:"받침 бүхий үндэс → -습니다 (많습니다)."},
+
+  // ===== Chapter 2 =====
+  {ch:2,t:"fill",s:"저는 빵___ 먹습니다.",mn:"Би талх иднэ.",c:"을",w:["를","이","가"],why:"빵 — 받침(ㅇ) байгаа тул 을."},
+  {ch:2,t:"fill",s:"저는 커피___ 마십니다.",mn:"Би кофи уунa.",c:"를",w:["을","이","에서"],why:"커피 — 받침 байхгүй тул 를."},
+  {ch:2,t:"fill",s:"어머니는 학교___ 음악을 가르칩니다.",mn:"Ээж сургуульд хөгжим заадаг.",c:"에서",w:["에","을","하고"],why:"에서 — үйлдэл хийгдэж буй газрыг заана."},
+  {ch:2,t:"fill",s:"저는 언니를 만나___ 싶습니다.",mn:"Би эгчтэйгээ уулзмаар байна.",c:"고",w:["면","서","러"],why:"-고 싶다 — хийхийг хүсэж буйг илэрхийлнэ."},
+  {ch:2,t:"fill",s:"저는 학생___ 아닙니다.",mn:"Би сурагч биш.",c:"이",w:["가","을","를"],why:"학생 — 받침(ㅇ) байгаа тул 이 아니다."},
+  {ch:2,t:"fill",s:"저는 가수___ 아닙니다.",mn:"Би дуучин биш.",c:"가",w:["이","을","를"],why:"가수 — 받침 байхгүй тул 가 아니다."},
+  {ch:2,t:"fill",s:"아버지는 회사에서 ___.",mn:"Аав компанид ажилладаг.",c:"일합니다",w:["일하습니다","일합습니다","일하입니다"],why:"하다 — 받침 байхгүй тул -ㅂ니다: 합니다."},
+  {ch:2,t:"fill",s:"저는 영화를 ___ 싶습니다.",mn:"Би кино үзмээр байна.",c:"보고",w:["보면","보서","보러"],why:"-고 싶다 — үйл үгийн үндэс + 고."},
+  {ch:2,t:"err",bad:"음악를 듣습니다.",fix:"음악을 듣습니다.",ok:["빵을 먹습니다.","커피를 마십니다.","친구를 만납니다."],why:"음악 — 받침(ㄱ) байгаа тул 을."},
+  {ch:2,t:"err",bad:"아버지는 가수이 아닙니다.",fix:"아버지는 가수가 아닙니다.",ok:["저는 학생이 아닙니다.","어머니는 선생님이 아닙니다.","언니는 회사원이 아닙니다."],why:"가수 — 받침 байхгүй тул 가 아니다."},
+  {ch:2,t:"err",bad:"식당에 밥을 먹습니다.",fix:"식당에서 밥을 먹습니다.",ok:["학교에서 공부합니다.","커피숍에서 친구를 만납니다.","도서관에서 책을 읽습니다."],why:"Үйлдэл хийгдэх газар → 에서 (에 нь очих/байх газарт)."},
+  {ch:2,t:"err",bad:"음악을 듣고 싶니다.",fix:"음악을 듣고 싶습니다.",ok:["한국에 가고 싶습니다.","커피를 마시고 싶습니다.","영화를 보고 싶습니다."],why:"싶다 — 받침 бий тул -습니다: 싶습니다."},
+  {ch:2,t:"err",bad:"저는 커피을 마십니다.",fix:"저는 커피를 마십니다.",ok:["저는 빵을 먹습니다.","저는 음악을 듣습니다.","저는 책을 읽습니다."],why:"커피 — 받침 байхгүй тул 를."},
+
+  // ===== Chapter 3 =====
+  {ch:3,t:"fill",s:"토요일___ 북한산에 갔어요.",mn:"Бямба гарагт Бүкхан ууланд явсан.",c:"에",w:["에서","을","하고"],why:"에 — цаг хугацааг заана."},
+  {ch:3,t:"fill",s:"저는 친구를 ___.",mn:"Би найзтайгаа уулзана.",c:"만나요",w:["만나아요","만나어요","만났어요"],why:"만나다 — ㅏ эгшиг → -아요, 나+아 нийлж 만나요 болно."},
+  {ch:3,t:"fill",s:"저는 빵을 ___.",mn:"Би талх иднэ.",c:"먹어요",w:["먹아요","먹해요","먹았어요"],why:"먹다 — ㅓ эгшиг (ㅏ, ㅗ биш) → -어요."},
+  {ch:3,t:"fill",s:"어제 친구를 ___.",mn:"Өчигдөр найзтайгаа уулзсан.",c:"만났어요",w:["만나요","만나었어요","만날어요"],why:"ㅏ эгшиг → -았-: 만났어요."},
+  {ch:3,t:"fill",s:"어제 점심을 ___.",mn:"Өчигдөр өдрийн хоол идсэн.",c:"먹었어요",w:["먹았어요","먹어요","먹해요"],why:"먹다 — ㅓ эгшиг → -었-: 먹었어요."},
+  {ch:3,t:"fill",s:"일요일에 친구___ 영화를 봤어요.",mn:"Ням гарагт найзтайгаа кино үзсэн.",c:"하고",w:["에","를","에서"],why:"하고 — хэн нэгэнтэй хамт."},
+  {ch:3,t:"fill",s:"서준 씨는 학교___ 갔어요.",mn:"Сожүн сургууль руу явсан.",c:"에",w:["에서","을","하고"],why:"-에 가다 — очих газрыг заана."},
+  {ch:3,t:"fill",s:"저는 매일 한국어를 ___.",mn:"Би өдөр бүр солонгос хэл сурдаг.",c:"공부해요",w:["공부하아요","공부하어요","공부했어요"],why:"하다 → 해요 (өнгөрсөн бол 했어요)."},
+  {ch:3,t:"err",bad:"빵을 먹아요.",fix:"빵을 먹어요.",ok:["책을 읽어요.","커피를 마셔요.","친구를 만나요."],why:"ㅏ, ㅗ-оос бусад эгшиг → -어요."},
+  {ch:3,t:"err",bad:"어제 밥을 먹았어요.",fix:"어제 밥을 먹었어요.",ok:["어제 영화를 봤어요.","어제 친구를 만났어요.","어제 공부했어요."],why:"먹다 — ㅓ эгшиг → -었어요."},
+  {ch:3,t:"err",bad:"도서관에서 갔어요.",fix:"도서관에 갔어요.",ok:["학교에 가요.","공원에 갔어요.","집에 와요."],why:"가다/오다-ийн өмнө очих газарт 에 хэрэглэнэ."},
+  {ch:3,t:"err",bad:"매일 일하어요.",fix:"매일 일해요.",ok:["어제 일했어요.","친구하고 말해요.","도서관에서 공부해요."],why:"하다 → 해요 / 했어요."},
+  {ch:3,t:"err",bad:"토요일에서 친구를 만나요.",fix:"토요일에 친구를 만나요.",ok:["월요일에 학교에 가요.","일요일에 쉬어요.","주말에 영화를 봐요."],why:"Цаг хугацаа → 에."},
+
+  // ===== Chapter 4 =====
+  {ch:4,t:"fill",s:"여기에 ___.",mn:"Энд суугаарай.",c:"앉으세요",w:["앉세요","앉아세요","앉을까요"],why:"앉다 — 받침 бий тул -으세요."},
+  {ch:4,t:"fill",s:"물을 ___.",mn:"Ус өгөөч.",c:"주세요",w:["주으세요","줘세요","줄까요"],why:"주다 — 받침 байхгүй тул -세요."},
+  {ch:4,t:"fill",s:"우리 같이 점심을 ___?",mn:"Хамт өдрийн хоол идэх үү?",c:"먹을까요",w:["먹까요","먹으까요","먹읍까요"],why:"먹다 — 받침 бий тул -을까요?"},
+  {ch:4,t:"fill",s:"우리 커피를 ___?",mn:"Хамт кофи уух уу?",c:"마실까요",w:["마시을까요","마실을까요","마시까요"],why:"마시다 — 받침 байхгүй тул -ㄹ까요?: 마실까요."},
+  {ch:4,t:"fill",s:"친구를 만나___ 갑니다.",mn:"Найзтайгаа уулзахаар явна.",c:"러",w:["으러","고","서"],why:"만나다 — 받침 байхгүй тул -러 가다."},
+  {ch:4,t:"fill",s:"책을 찾___ 도서관에 갑니다.",mn:"Ном хайхаар номын сан руу явна.",c:"으러",w:["러","고","면"],why:"찾다 — 받침 бий тул -으러 가다."},
+  {ch:4,t:"fill",s:"김밥이 맛있___ 손님이 많이 시켜요.",mn:"Кимбап амттай болохоор зочид их захиалдаг.",c:"어서",w:["아서","해서","으서"],why:"맛있다 — ㅣ эгшиг (ㅏ, ㅗ биш) → -어서."},
+  {ch:4,t:"fill",s:"날씨가 좋___ 공원에 갔어요.",mn:"Цаг агаар сайхан болохоор цэцэрлэгт явсан.",c:"아서",w:["어서","해서","으서"],why:"좋다 — ㅗ эгшиг → -아서."},
+  {ch:4,t:"fill",s:"저는 커피를 마셔요. 녹차___ 마셔요.",mn:"Би кофи уудаг. Ногоон цай ч бас уудаг.",c:"도",w:["에","가","에서"],why:"도 — өмнө байгаа зүйлд нэмэх (-ч бас)."},
+  {ch:4,t:"err",bad:"물을 주으세요.",fix:"물을 주세요.",ok:["여기 앉으세요.","책을 읽으세요.","학교에 가세요."],why:"주다 — 받침 байхгүй тул -세요."},
+  {ch:4,t:"err",bad:"같이 먹까요?",fix:"같이 먹을까요?",ok:["같이 갈까요?","같이 마실까요?","같이 만날까요?"],why:"먹다 — 받침 бий тул -을까요?"},
+  {ch:4,t:"err",bad:"책을 사으러 서점에 가요.",fix:"책을 사러 서점에 가요.",ok:["친구를 만나러 가요.","밥을 먹으러 식당에 가요.","영화를 보러 극장에 가요."],why:"사다 — 받침 байхгүй тул -러."},
+  {ch:4,t:"err",bad:"날씨가 좋어서 공원에 갔어요.",fix:"날씨가 좋아서 공원에 갔어요.",ok:["맛있어서 많이 먹었어요.","피곤해서 일찍 잤어요.","싸서 많이 샀어요."],why:"좋다 — ㅗ эгшиг → -아서."},
+
+  // ===== Chapter 5 =====
+  {ch:5,t:"fill",s:"내일 비가 오___ 집에 있을 거예요.",mn:"Маргааш бороо орвол гэртээ байна.",c:"면",w:["으면","고","서"],why:"오다 — 받침 байхгүй тул -면."},
+  {ch:5,t:"fill",s:"시간이 많___ 같이 영화를 봐요.",mn:"Цаг их байвал хамт кино үзье.",c:"으면",w:["면","고","아서"],why:"많다 — 받침 бий тул -으면."},
+  {ch:5,t:"fill",s:"저는 내일 친구를 만날 ___.",mn:"Би маргааш найзтайгаа уулзана.",c:"거예요",w:["거에요","거여요","거야요"],why:"Зөв бичих хэлбэр: -ㄹ/을 거예요 (거에요 биш)."},
+  {ch:5,t:"fill",s:"저는 주말에 책을 읽___ 거예요.",mn:"Би амралтын өдөр ном уншина.",c:"을",w:["ㄹ","으","는"],why:"읽다 — 받침 бий тул -을 거예요."},
+  {ch:5,t:"fill",s:"9시___ 1시까지 수업이 있어요.",mn:"9 цагаас 1 цаг хүртэл хичээлтэй.",c:"부터",w:["까지","에","하고"],why:"부터 ~ 까지 — ...-аас ... хүртэл."},
+  {ch:5,t:"fill",s:"숙제를 하___ 친구를 만나요.",mn:"Даалгавраа хийчихээд найзтайгаа уулзана.",c:"고",w:["서","으면","으면서"],why:"-고 — дараалсан үйлдэл (-аад)."},
+  {ch:5,t:"fill",s:"커피를 마시___ 이야기해요.",mn:"Кофи ууж байгаад ярилцана.",c:"면서",w:["으면서","으면","아서"],why:"마시다 — 받침 байхгүй тул -면서."},
+  {ch:5,t:"fill",s:"책을 읽___ 커피를 마셔요.",mn:"Ном уншиж байгаад кофи уудаг.",c:"으면서",w:["면서","으면","아서"],why:"읽다 — 받침 бий тул -으면서."},
+  {ch:5,t:"fill",s:"저는 케이크를 ___.",mn:"Би бялуу хийнэ.",c:"만들 거예요",w:["만들을 거예요","만들 거에요","만든 거예요"],why:"ㄹ받침 → 을 нэмэхгүй, шууд -거예요."},
+  {ch:5,t:"err",bad:"크으면 좋아요.",fix:"크면 좋아요.",ok:["비가 오면 집에 있어요.","시간이 있으면 만나요.","많으면 좋아요."],why:"크다 — 받침 байхгүй тул -면."},
+  {ch:5,t:"err",bad:"저녁에 만들을 거예요.",fix:"저녁에 만들 거예요.",ok:["내일 갈 거예요.","책을 읽을 거예요.","밥을 먹을 거예요."],why:"ㄹ받침 → 을 нэмэхгүй."},
+  {ch:5,t:"err",bad:"3시까지 6시부터 공부해요.",fix:"3시부터 6시까지 공부해요.",ok:["아침 9시부터 오후 1시까지 일해요.","월요일부터 금요일까지 학교에 가요.","지금부터 시작해요."],why:"Дараалал: эхлэх цаг + 부터, дуусах цаг + 까지."},
+  {ch:5,t:"err",bad:"책을 읽으고 쉬어요.",fix:"책을 읽고 쉬어요.",ok:["밥을 먹고 학교에 가요.","숙제를 하고 잤어요.","커피를 마시고 만나요."],why:"-고 — үйл үгийн үндэс дээр шууд залгана (으 нэмэхгүй)."},
+  {ch:5,t:"err",bad:"책을 읽면서 먹어요.",fix:"책을 읽으면서 먹어요.",ok:["커피를 마시면서 이야기해요.","먹으면서 공부해요.","노래하면서 일해요."],why:"읽다 — 받침 бий тул -으면서."},
+
+  // ===== Chapter 6 =====
+  {ch:6,t:"fill",s:"사과가 비싸___ 맛있어요.",mn:"Алим үнэтэй ч амттай.",c:"지만",w:["아서","네요","고서"],why:"-지만 — эсрэг утга (-ч гэсэн)."},
+  {ch:6,t:"fill",s:"김치는 맵___ 맛있어요.",mn:"Кимчи халуун ногоотой ч амттай.",c:"지만",w:["으지만","아서","으면"],why:"-지만 нь үндэс дээр шууд залгана."},
+  {ch:6,t:"fill",s:"오렌지는 비싸___ 않아요.",mn:"Оренж үнэтэй биш.",c:"지",w:["고","아","게"],why:"-지 않다 — үгүйсгэх."},
+  {ch:6,t:"fill",s:"저는 커피를 마시___ 않아요.",mn:"Би кофи уудаггүй.",c:"지",w:["고","서","면"],why:"-지 않다 — үгүйсгэх."},
+  {ch:6,t:"fill",s:"저는 오늘 학교에 ___ 가요.",mn:"Би өнөөдөр сургуульд явахгүй.",c:"안",w:["아니","없","않"],why:"안 + үйл үг — үгүйсгэх."},
+  {ch:6,t:"fill",s:"이 바지가 정말 예쁘___!",mn:"Энэ өмд үнэхээр хөөрхөн юм аа!",c:"네요",w:["지만","으면","아서"],why:"-네요 — шинээр мэдсэн зүйлд гайхах."},
+  {ch:6,t:"fill",s:"한국어를 잘 ___!",mn:"Солонгос хэлээр сайн ярьдаг юм аа!",c:"하네요",w:["한네요","해네요","하내요"],why:"하다 + -네요 → 하네요."},
+  {ch:6,t:"fill",s:"이 옷을 한번 입어 ___.",mn:"Энэ хувцсыг нэг өмсөж үзээрэй.",c:"보세요",w:["가세요","마세요","오세요"],why:"-아/어 보다 — туршиж үзэх."},
+  {ch:6,t:"fill",s:"저는 한국 음식을 먹어 ___.",mn:"Би солонгос хоол идэж үзсэн.",c:"봤어요",w:["갔어요","왔어요","했어요"],why:"-아/어 보다 — өмнө нь туршиж үзсэн."},
+  {ch:6,t:"err",bad:"많아지만 싸요.",fix:"많지만 싸요.",ok:["비싸지만 좋아요.","작지만 예뻐요.","맛있지만 매워요."],why:"-지만 — үйл үгийн үндэс дээр шууд залгана."},
+  {ch:6,t:"err",bad:"저는 안 가지 않아요.",fix:"저는 안 가요. / 저는 가지 않아요.",ok:["저는 안 먹어요.","저는 가지 않아요.","저는 먹지 않아요."],why:"안 ба -지 않다-г хамт хэрэглэхгүй (давхар үгүйсгэл болно)."},
+  {ch:6,t:"err",bad:"음식이 맛있으네요.",fix:"음식이 맛있네요.",ok:["이 옷이 예쁘네요.","날씨가 좋네요.","책이 많네요."],why:"-네요 — үндэс дээр шууд залгана (으 нэмэхгүй)."},
+  {ch:6,t:"err",bad:"이 책을 읽아 보세요.",fix:"이 책을 읽어 보세요.",ok:["한번 입어 보세요.","한국 음식을 먹어 보세요.","한번 가 보세요."],why:"읽다 — ㅣ эгшиг → -어 보다."},
+  {ch:6,t:"err",bad:"예쁘지 않해요.",fix:"예쁘지 않아요.",ok:["비싸지 않아요.","맛있지 않아요.","크지 않아요."],why:"-지 않다 → 않아요."},
+
+  // ===== Chapter 7 =====
+  {ch:7,t:"fill",s:"제 여자 친구는 키가 크___ 예뻐요.",mn:"Миний найз охин өндөр бас хөөрхөн.",c:"고",w:["으고","어서","으면"],why:"-고 — тэнцүү баримтуудыг жагсаана."},
+  {ch:7,t:"fill",s:"시간이 많___ 좋겠어요.",mn:"Цаг их байвал сайхан юм.",c:"으면",w:["면","고","아서"],why:"많다 — 받침 бий тул -으면 좋겠다."},
+  {ch:7,t:"fill",s:"방학이 빨리 오___ 좋겠어요.",mn:"Амралт хурдан ирвэл сайхан юм.",c:"면",w:["으면","고","아서"],why:"오다 — 받침 байхгүй тул -면 좋겠다."},
+  {ch:7,t:"fill",s:"저는 자전거를 탈 ___ 있어요.",mn:"Би дугуй унаж чадна.",c:"수",w:["것","때","거"],why:"-ㄹ/을 수 있다 — чадах."},
+  {ch:7,t:"fill",s:"저는 케이크를 ___ 있어요.",mn:"Би бялуу хийж чадна.",c:"만들 수",w:["만들을 수","만든 수","만들ㄹ 수"],why:"ㄹ받침 → шууд -수 있다: 만들 수 있다."},
+  {ch:7,t:"fill",s:"한강 공원에 ___ 자전거를 타요.",mn:"Ханган цэцэрлэгт очоод дугуй унана.",c:"가서",w:["가아서","갔어서","갈서"],why:"가다 + -아서 → 가서."},
+  {ch:7,t:"fill",s:"친구를 ___ 영화를 봤어요.",mn:"Найзтайгаа уулзаад кино үзсэн.",c:"만나서",w:["만나아서","만나었서","만났서"],why:"만나다 + -아서 → 만나서."},
+  {ch:7,t:"fill",s:"도서관에서 책을 ___ 읽어요.",mn:"Номын сангаас ном зээлээд уншина.",c:"빌려서",w:["빌리서","빌려아서","빌리아서"],why:"빌리다 → 빌려 + 서 = 빌려서."},
+  {ch:7,t:"err",bad:"눈이 크으고 예뻐요.",fix:"눈이 크고 예뻐요.",ok:["키가 크고 예뻐요.","친절하고 똑똑해요.","머리가 길고 귀여워요."],why:"-고 — үндэс дээр шууд залгана."},
+  {ch:7,t:"err",bad:"만들으면 좋겠어요.",fix:"만들면 좋겠어요.",ok:["가면 좋겠어요.","먹으면 좋겠어요.","오면 좋겠어요."],why:"ㄹ받침 → -면 좋겠다 (으 нэмэхгүй)."},
+  {ch:7,t:"err",bad:"만들을 수 있어요.",fix:"만들 수 있어요.",ok:["갈 수 있어요.","읽을 수 있어요.","먹을 수 있어요."],why:"ㄹ받침 → 을 нэмэхгүй: 만들 수 있다."},
+  {ch:7,t:"err",bad:"피아노를 치을 수 있어요.",fix:"피아노를 칠 수 있어요.",ok:["자전거를 탈 수 있어요.","노래를 부를 수 있어요.","한국어를 말할 수 있어요."],why:"치다 — 받침 байхгүй тул -ㄹ 수 있다: 칠 수."},
+  {ch:7,t:"err",bad:"시장에 가아서 사요.",fix:"시장에 가서 사요.",ok:["앉아서 이야기해요.","친구를 만나서 영화를 봐요.","도서관에 가서 공부해요."],why:"가 + 아서 → 가서."}
+];
+
+// ---------- GRAMMAR: STATE ----------
+var LS_G_KEY = "grammarQuizStateV1";
+var LS_GM_KEY = "grammarMasteryV1";
+function gLoad(key, def){
+  try{ var r = localStorage.getItem(key); if(r) return JSON.parse(r); }catch(e){}
+  return def;
+}
+function gSave(key, v){
+  try{ localStorage.setItem(key, JSON.stringify(v)); }catch(e){}
+}
+var gState = gLoad(LS_G_KEY, {best:0, played:0});
+var gMastery = migrateRecs(gLoad(LS_GM_KEY, {}));
+GQ.forEach(function(q){ q.id = q.ch + "::" + (q.t === "fill" ? q.s + "|" + q.c : q.bad); });
+
+var gSelected = "all";
+var gLen = "all";
+var gQuiz = [], gIdx = 0, gCorrect = 0, gWrong = 0, gStreak = 0, gBestStreak = 0, gAnswered = false, gLog = [];
+
+function gPoolAll(){
+  return GQ.filter(function(q){ return gSelected === "all" || gSelected.indexOf(q.ch) !== -1; });
+}
+function gMasteredIn(ch){
+  var n = 0;
+  GQ.forEach(function(q){ if(q.ch === ch && isLearned(gMastery[q.id], GRAM_NEED)) n++; });
+  return n;
+}
+function gCountIn(ch){
+  var n = 0;
+  GQ.forEach(function(q){ if(q.ch === ch) n++; });
+  return n;
+}
+function gBuild(n){
+  return pickByNeed(gPoolAll(), function(q){ return gMastery[q.id]; }, GRAM_NEED, n);
+}
+
+// ---------- GRAMMAR: SCREENS ----------
+function openGrammar(){
+  showScreen("screen-grammar");
+  if(!document.getElementById("gpane-read").dataset.ready){ renderGRead(); document.getElementById("gpane-read").dataset.ready = "1"; }
+  renderGGrid();
+  gUpdateStart();
+  gRefreshStats();
+}
+function gTab(tab){
+  document.getElementById("gtab-row").querySelectorAll(".mode-btn").forEach(function(b){
+    b.classList.toggle("selected", b.dataset.tab === tab);
+  });
+  document.getElementById("gpane-read").style.display = tab === "read" ? "block" : "none";
+  document.getElementById("gpane-practice").style.display = tab === "practice" ? "block" : "none";
+  if(tab === "practice"){ renderGGrid(); gUpdateStart(); gRefreshStats(); }
+}
+function renderGRead(){
+  var h = "";
+  GRAMMAR.forEach(function(g, idx){
+    var color = CHAPTER_COLORS[idx % CHAPTER_COLORS.length];
+    h += '<details class="gch"><summary>' +
+      '<span class="gnum" style="background:'+color+'22;color:'+color+';">'+g.ch+'</span>' +
+      '<span class="gsum"><b>'+g.ch+'-р бүлэг</b><i>'+escapeHtml(g.title)+'</i></span></summary>';
+    g.items.forEach(function(it){
+      h += '<div class="gitem"><div class="gpat" style="color:'+color+';">'+escapeHtml(it.p)+'</div>';
+      h += '<div class="gdesc">'+escapeHtml(it.d)+'</div>';
+      if(it.f && it.f.length){
+        h += '<div class="gform">';
+        it.f.forEach(function(r){
+          h += '<div class="frow"><span class="a">'+escapeHtml(r[0])+'</span><span class="b">'+escapeHtml(r[1])+'</span><span class="c">'+escapeHtml(r[2])+'</span></div>';
+        });
+        h += '</div>';
+      }
+      if(it.ex && it.ex.length){
+        h += '<div class="gex">';
+        it.ex.forEach(function(e){
+          h += '<div><span class="k">'+escapeHtml(e[0])+'</span><span class="m">'+escapeHtml(e[1])+'</span></div>';
+        });
+        h += '</div>';
+      }
+      h += '</div>';
+    });
+    h += '</details>';
+  });
+  document.getElementById("gpane-read").innerHTML = h;
+}
+
+function renderGGrid(){
+  var grid = document.getElementById("g-ch-grid");
+  grid.innerHTML = "";
+  GRAMMAR.forEach(function(g, idx){
+    var card = document.createElement("div");
+    card.className = "ch-card";
+    if(gSelected !== "all" && gSelected.indexOf(g.ch) !== -1) card.classList.add("selected");
+    var color = CHAPTER_COLORS[idx % CHAPTER_COLORS.length];
+    var m = gMasteredIn(g.ch);
+    card.innerHTML =
+      '<div class="em" style="background:'+color+'22;color:'+color+';">'+CHAPTER_ICONS[idx % CHAPTER_ICONS.length]+'</div>'+
+      '<div class="ti">'+g.ch+'-р бүлэг</div>'+
+      '<div class="n">'+gCountIn(g.ch)+' асуулт</div>'+
+      (m > 0 ? '<div class="mastery">'+m+' зөв хариулсан</div>' : '');
+    card.onclick = function(){ gToggleChapter(g.ch); };
+    grid.appendChild(card);
+  });
+  document.getElementById("g-all-card").classList.toggle("selected", gSelected === "all");
+  document.getElementById("g-all-count").textContent = GQ.length + " асуулт";
+}
+function gSelectAll(){
+  gSelected = "all";
+  renderGGrid();
+  gUpdateStart();
+}
+function gToggleChapter(ch){
+  if(gSelected === "all") gSelected = [];
+  var i = gSelected.indexOf(ch);
+  if(i === -1) gSelected.push(ch); else gSelected.splice(i, 1);
+  if(gSelected.length === 0) gSelected = "all";
+  renderGGrid();
+  gUpdateStart();
+}
+function gSelectLength(len){
+  gLen = len;
+  document.getElementById("g-length-row").querySelectorAll(".mode-btn").forEach(function(b){
+    b.classList.toggle("selected", String(b.dataset.len) === String(len));
+  });
+  gUpdateStart();
+}
+function gQuizLen(){
+  var n = gPoolAll().length;
+  return gSelected === "all" ? Math.min(20, n) : n;   // mixed = 20 questions; chosen chapters = all their questions
+}
+function gUpdateStart(){
+  var btn = document.getElementById("g-start-btn");
+  var n = gQuizLen();
+  btn.textContent = n + " асуулттай дасгал эхлэх →";
+  btn.disabled = n < 1;
+}
+function gTotalMastered(){
+  var n = 0;
+  GQ.forEach(function(q){ if(isLearned(gMastery[q.id], GRAM_NEED)) n++; });
+  return n;
+}
+function gRefreshStats(){
+  document.getElementById("g-stat-best").textContent = (gState.best || 0) + "%";
+  document.getElementById("g-stat-played").textContent = gState.played || 0;
+  document.getElementById("g-stat-mastered").textContent = gTotalMastered();
+}
+
+// ---------- GRAMMAR: QUIZ ----------
+function gStart(){
+  var n = gQuizLen();
+  if(n < 1) return;
+  gQuiz = gBuild(n).map(function(q){
+    var correct = q.t === "fill" ? q.c : q.bad;
+    var opts = q.t === "fill" ? shuffle([q.c].concat(q.w)) : shuffle([q.bad].concat(q.ok));
+    return {q:q, opts:opts, correct:correct};
+  });
+  gIdx = 0; gCorrect = 0; gWrong = 0; gStreak = 0; gBestStreak = 0; gLog = [];
+  showScreen("screen-gquiz");
+  gRender();
+}
+function gRestart(){ gStart(); }
+function gRender(){
+  gAnswered = false;
+  var item = gQuiz[gIdx];
+  var q = item.q;
+  var total = gQuiz.length;
+  document.getElementById("g-progress-fill").style.width = Math.round((gIdx / total) * 100) + "%";
+  document.getElementById("g-streak-badge").textContent = "Дараалал " + gStreak;
+  document.getElementById("g-q-tag").textContent = q.ch + "-р бүлэг · " + (gIdx + 1) + "/" + total;
+  var promptEl = document.getElementById("g-q-prompt");
+  var wordEl = document.getElementById("g-q-word");
+  var subEl = document.getElementById("g-q-sub");
+  if(q.t === "fill"){
+    promptEl.textContent = "Хоосон зайг нөх";
+    wordEl.textContent = q.s;
+    wordEl.style.fontSize = q.s.length > 16 ? "22px" : "28px";
+    subEl.textContent = q.mn;
+  } else {
+    promptEl.textContent = "Алдаа олох";
+    wordEl.textContent = "Аль өгүүлбэр буруу вэ?";
+    wordEl.style.fontSize = "22px";
+    subEl.textContent = "";
+  }
+  document.getElementById("g-exp").style.display = "none";
+  document.getElementById("g-exp").innerHTML = "";
+  var wrap = document.getElementById("g-options");
+  wrap.innerHTML = "";
+  var letters = ["A","B","C","D"];
+  item.opts.forEach(function(text, i){
+    var el = document.createElement("div");
+    el.className = "opt";
+    el.innerHTML = '<div class="opt-inner"><span class="k">'+letters[i]+'</span><span>'+escapeHtml(text)+'</span></div>';
+    el.onclick = function(){ gAnswer(el, text); };
+    wrap.appendChild(el);
+  });
+  document.getElementById("g-next-btn").classList.remove("show");
+}
+function gAnswer(el, text){
+  if(gAnswered) return;
+  gAnswered = true;
+  var item = gQuiz[gIdx];
+  var q = item.q;
+  var isCorrect = text === item.correct;
+  var opts = document.getElementById("g-options").querySelectorAll(".opt");
+  opts.forEach(function(o, i){
+    if(item.opts[i] === item.correct) o.classList.add("correct");
+    else if(o === el) o.classList.add("wrong");
+    else o.classList.add("dim");
+  });
+  if(isCorrect){
+    gCorrect++; gStreak++;
+    if(gStreak > gBestStreak) gBestStreak = gStreak;
+    recCorrect(gMastery, q.id);
+  } else {
+    gWrong++; gStreak = 0;
+    recWrong(gMastery, q.id);
+  }
+  gSave(LS_GM_KEY, gMastery);
+  document.getElementById("g-streak-badge").textContent = "Дараалал " + gStreak;
+  var shown = q.t === "fill" ? q.s.replace("___", q.c) : q.fix;
+  var exp = document.getElementById("g-exp");
+  exp.innerHTML = '<div class="eh '+(isCorrect?"ok":"no")+'">'+(isCorrect?"Зөв!":"Буруу")+'</div>' +
+    '<div class="es">'+escapeHtml(shown)+'</div>' +
+    '<div class="ew">'+escapeHtml(q.why)+'</div>';
+  exp.style.display = "block";
+  gLog.push({q:q, correct:isCorrect, shown:shown});
+  var nb = document.getElementById("g-next-btn");
+  nb.textContent = gIdx + 1 >= gQuiz.length ? "Дүн харах →" : "Дараах →";
+  nb.classList.add("show");
+}
+function gNext(){
+  if(!gAnswered) return;
+  gIdx++;
+  if(gIdx >= gQuiz.length) gFinish(); else gRender();
+}
+function gExit(){
+  if(gIdx > 0 && !confirm("Дасгалаа зогсоох уу? Явц хадгалагдахгүй.")) return;
+  openGrammar();
+  gTab("practice");
+}
+function gBack(){
+  openGrammar();
+  gTab("practice");
+}
+function gFinish(){
+  document.getElementById("g-progress-fill").style.width = "100%";
+  var total = gQuiz.length;
+  var pct = Math.round((gCorrect / total) * 100);
+  gState.played = (gState.played || 0) + 1;
+  var isNew = pct > (gState.best || 0);
+  if(isNew) gState.best = pct;
+  gSave(LS_G_KEY, gState);
+  document.getElementById("g-best-banner").style.display = isNew ? "block" : "none";
+  var title = "Дуусгалаа!";
+  if(pct === 100) title = "Төгс оноо!";
+  else if(pct >= 80) title = "Маш сайн байна!";
+  else if(pct >= 50) title = "Сайн оролдлого!";
+  else title = "Дүрмээ дахин уншаад үзээрэй!";
+  document.getElementById("g-result-title").textContent = title;
+  document.getElementById("g-result-sub").textContent = total + "-с " + gCorrect + " зөв хариулсан";
+  document.getElementById("g-score-circle").style.setProperty("--pct", pct);
+  document.getElementById("g-score-num").textContent = pct + "%";
+  document.getElementById("g-res-correct").textContent = gCorrect;
+  document.getElementById("g-res-wrong").textContent = gWrong;
+  document.getElementById("g-res-streak").textContent = gBestStreak;
+  var list = document.getElementById("g-review-list");
+  list.innerHTML = "";
+  gLog.forEach(function(r){
+    var row = document.createElement("div");
+    row.className = "review-item g";
+    row.innerHTML = '<span class="mark '+(r.correct?"ok":"no")+'"></span><span class="w">'+escapeHtml(r.shown)+'</span>';
+    list.appendChild(row);
+  });
+  showScreen("screen-gresult");
+}
+
+window.openGrammar = openGrammar;
+window.gTab = gTab;
+window.gSelectAll = gSelectAll;
+window.gSelectLength = gSelectLength;
+window.gStart = gStart;
+window.gRestart = gRestart;
+window.gNext = gNext;
+window.gExit = gExit;
+window.gBack = gBack;
+
+// ---------- NAV: MENU / WORDS HUB ----------
+var wCurTab = "test";
+function goMenu(){ showScreen("screen-menu"); }
+function openWords(tab){
+  showScreen("screen-home");
+  wTab(tab || wCurTab);
+}
+function wTab(tab){
+  wCurTab = tab;
+  document.getElementById("wtab-row").querySelectorAll(".mode-btn").forEach(function(b){
+    b.classList.toggle("selected", b.dataset.tab === tab);
+  });
+  document.getElementById("wpane-test").style.display = tab === "test" ? "block" : "none";
+  document.getElementById("wpane-flash").style.display = tab === "flash" ? "block" : "none";
+  if(tab === "test"){ refreshHomeStats(); updateStartBtn(); }
+  else { renderFGrid(); fUpdateStart(); fRefreshStats(); }
+}
+
+// ---------- FLASHCARDS ----------
+var LS_F_KEY = "flashKnownV1";
+var fKnown = migrateRecs(gLoad(LS_F_KEY, {}));   // { "<ch>::<kr>": {c, t} }
+var fSelected = "all", fScope = "new", fSide = "kr";
+var fDeck = [], fPos = 0, fFlipped = false, fDone = 0, fTotal = 0, fAgainSet = {};
+
+function fAllWords(){
+  var out = [];
+  DATA.forEach(function(ch){
+    if(fSelected !== "all" && fSelected.indexOf(ch.ch) === -1) return;
+    ch.words.forEach(function(w){
+      out.push({kr:w[0], mn:w[1], ch:ch.ch, id:wordId(ch.ch, w[0])});
+    });
+  });
+  return out;
+}
+function fPool(){
+  return fAllWords().filter(function(w){ return fScope === "all" || needsWork(fKnown[w.id], FLASH_NEED); });
+}
+function fKnownIn(ch){
+  var n = 0;
+  ch.words.forEach(function(w){ if(isLearned(fKnown[wordId(ch.ch, w[0])], FLASH_NEED)) n++; });
+  return n;
+}
+function renderFGrid(){
+  var grid = document.getElementById("f-ch-grid");
+  grid.innerHTML = "";
+  DATA.forEach(function(ch, idx){
+    var card = document.createElement("div");
+    card.className = "ch-card";
+    if(fSelected !== "all" && fSelected.indexOf(ch.ch) !== -1) card.classList.add("selected");
+    var color = CHAPTER_COLORS[idx % CHAPTER_COLORS.length];
+    var k = fKnownIn(ch);
+    card.innerHTML =
+      '<div class="em" style="background:'+color+'22;color:'+color+';">'+CHAPTER_ICONS[idx % CHAPTER_ICONS.length]+'</div>'+
+      '<div class="ti">'+ch.ch+'-р бүлэг</div>'+
+      '<div class="n">'+ch.title+' · '+ch.words.length+' үг</div>'+
+      (k > 0 ? '<div class="mastery">'+k+' мэдсэн</div>' : '');
+    card.onclick = function(){ fToggleChapter(ch.ch); };
+    grid.appendChild(card);
+  });
+  document.getElementById("f-all-card").classList.toggle("selected", fSelected === "all");
+  document.getElementById("f-all-count").textContent = totalWords + " үг";
+}
+function fSelectAll(){ fSelected = "all"; renderFGrid(); fUpdateStart(); }
+function fToggleChapter(ch){
+  if(fSelected === "all") fSelected = [];
+  var i = fSelected.indexOf(ch);
+  if(i === -1) fSelected.push(ch); else fSelected.splice(i, 1);
+  if(fSelected.length === 0) fSelected = "all";
+  renderFGrid(); fUpdateStart();
+}
+function fSelectScope(s){
+  fScope = s;
+  document.getElementById("f-scope-row").querySelectorAll(".mode-btn").forEach(function(b){
+    b.classList.toggle("selected", b.dataset.scope === s);
+  });
+  fUpdateStart();
+}
+function fSelectSide(s){
+  fSide = s;
+  document.getElementById("f-side-row").querySelectorAll(".mode-btn").forEach(function(b){
+    b.classList.toggle("selected", b.dataset.side === s);
+  });
+}
+function fUpdateStart(){
+  var btn = document.getElementById("f-start-btn");
+  var n = fPool().length;
+  if(n === 0){
+    btn.textContent = "Бүх үгээ мэдсэн байна — «Бүгд» сонгоорой";
+    btn.disabled = true;
+  } else {
+    btn.textContent = n + " үгтэй flashcard эхлэх →";
+    btn.disabled = false;
+  }
+}
+function fRefreshStats(){
+  var known = 0;
+  DATA.forEach(function(ch){ known += fKnownIn(ch); });
+  document.getElementById("f-stat-known").textContent = known;
+  document.getElementById("f-stat-left").textContent = Math.max(0, totalWords - known);
+}
+
+function fStart(){
+  var pool = fPool();
+  if(pool.length === 0) return;
+  fDeck = shuffle(pool);
+  fPos = 0; fDone = 0; fTotal = fDeck.length; fAgainSet = {};
+  showScreen("screen-flash");
+  fRender();
+}
+function fRestart(){ fStart(); }
+function fRender(){
+  var c = fDeck[fPos];
+  fFlipped = false;
+  document.getElementById("f-progress").style.width = Math.round((fDone / fTotal) * 100) + "%";
+  document.getElementById("f-count").textContent = fDone + "/" + fTotal;
+  document.getElementById("f-tag").textContent = c.ch + "-р бүлэг";
+  fShowSide();
+}
+function fShowSide(){
+  var c = fDeck[fPos];
+  var showKr = (fSide === "kr") !== fFlipped;   // kr front: kr when not flipped; mn front: kr when flipped
+  var text = showKr ? c.kr : c.mn;
+  var w = document.getElementById("f-word");
+  w.textContent = text;
+  w.style.fontSize = text.length > 14 ? "26px" : "38px";
+  var card = document.getElementById("f-card");
+  card.classList.toggle("back", fFlipped);
+  card.style.animation = "none"; void card.offsetWidth; card.style.animation = "";
+  document.getElementById("f-sound").style.display = (showKr && canSpeak()) ? "inline-flex" : "none";
+}
+function fFlip(){
+  if(!fDeck.length) return;
+  fFlipped = !fFlipped;
+  fShowSide();
+  var showKr = (fSide === "kr") !== fFlipped;
+  if(showKr) speakKo(fDeck[fPos].kr);
+}
+function fSpeak(){ if(fDeck[fPos]) speakKo(fDeck[fPos].kr); }
+function fAnswer(known){
+  var c = fDeck[fPos];
+  if(known){
+    recCorrect(fKnown, c.id);
+    fDone++;
+  } else {
+    recWrong(fKnown, c.id);
+    fAgainSet[c.id] = true;
+    fDeck.push(c);     // see it again later in this round
+  }
+  gSave(LS_F_KEY, fKnown);
+  fPos++;
+  if(fPos >= fDeck.length) fFinish(); else fRender();
+}
+function fFinish(){
+  document.getElementById("f-progress").style.width = "100%";
+  var again = Object.keys(fAgainSet).length;
+  document.getElementById("f-done-sub").textContent = fTotal + " үгийг давтлаа";
+  document.getElementById("f-done-known").textContent = fTotal;
+  document.getElementById("f-done-again").textContent = again;
+  showScreen("screen-fdone");
+}
+function fExit(){ openWords("flash"); }
+
+
+// swipe: right = known, left = not known; a tap flips the card
+(function(){
+  var card = document.getElementById("f-card");
+  var sx = 0, dx = 0, dragging = false, moved = false, pid = null, busy = false;
+  function paint(){
+    var a = Math.min(1, Math.abs(dx) / 110);
+    card.style.transform = "translateX(" + dx + "px) rotate(" + (dx / 18) + "deg)";
+    if(dx > 0){
+      card.style.boxShadow = "0 0 0 5px rgba(47,212,128," + (0.3 + 0.6*a) + ")";
+
+    } else {
+      card.style.boxShadow = "0 0 0 5px rgba(255,92,108," + (0.3 + 0.6*a) + ")";
+
+    }
+  }
+  function clearStyles(){
+    card.style.transition = "none";
+    card.style.transform = "";
+    card.style.boxShadow = "";
+    card.style.opacity = "";
+  }
+  function springBack(){
+    card.style.transition = "transform .18s ease, box-shadow .18s ease";
+    card.style.transform = "";
+    card.style.boxShadow = "";
+  }
+  function fling(known){
+    busy = true;
+    card.style.transition = "transform .22s ease, opacity .22s ease";
+    card.style.transform = "translateX(" + (known ? 520 : -520) + "px) rotate(" + (known ? 25 : -25) + "deg)";
+    card.style.opacity = "0";
+    setTimeout(function(){
+      clearStyles();
+      busy = false;
+      fAnswer(known);
+    }, 200);
+  }
+  var t0 = 0, lastX = 0, lastT = 0, vel = 0;
+  card.addEventListener("pointerdown", function(e){
+    if(busy || dragging || !fDeck.length) return;
+    if(e.target.closest && e.target.closest("#f-sound")) return;
+    dragging = true; moved = false; sx = e.clientX; dx = 0; pid = e.pointerId;
+    lastX = e.clientX; lastT = e.timeStamp; vel = 0;
+    try{ card.setPointerCapture(pid); }catch(err){}
+    card.style.animation = "none";
+    card.style.transition = "none";
+  });
+  card.addEventListener("pointermove", function(e){
+    if(!dragging || e.pointerId !== pid) return;
+    dx = e.clientX - sx;
+    var dt = e.timeStamp - lastT;
+    if(dt > 0){ vel = 0.4 * vel + 0.6 * ((e.clientX - lastX) / dt); lastX = e.clientX; lastT = e.timeStamp; }
+    if(Math.abs(dx) > 10) moved = true;
+    if(moved) paint();
+  });
+  function finish(){
+    if(!dragging) return;
+    dragging = false;
+    try{ card.releasePointerCapture(pid); }catch(err){}
+    if(!moved){ clearStyles(); fFlip(); return; }
+    var th = Math.min(70, card.offsetWidth * 0.2);
+    // far enough, or a quick flick in the same direction
+    if(Math.abs(dx) > th || (Math.abs(dx) > 25 && Math.abs(vel) > 0.4 && (vel > 0) === (dx > 0))) fling(dx > 0);
+    else springBack();
+  }
+  card.addEventListener("pointerup", function(e){ if(e.pointerId === pid) finish(); });
+  card.addEventListener("lostpointercapture", function(e){ if(e.pointerId === pid) finish(); });
+  card.addEventListener("pointercancel", function(e){
+    if(!dragging || e.pointerId !== pid) return;
+    dragging = false; springBack();
+  });
+  card.addEventListener("contextmenu", function(e){ e.preventDefault(); });
+  // keyboard: arrows = answer, space/enter = flip
+  document.addEventListener("keydown", function(e){
+    if(!document.getElementById("screen-flash").classList.contains("active") || busy) return;
+    if(e.key === "ArrowRight") fling(true);
+    else if(e.key === "ArrowLeft") fling(false);
+    else if(e.key === " " || e.key === "Enter"){ e.preventDefault(); fFlip(); }
+  });
+})();
+
+window.goMenu = goMenu;
+window.openWords = openWords;
+window.wTab = wTab;
+window.fSelectAll = fSelectAll;
+window.fSelectScope = fSelectScope;
+window.fSelectSide = fSelectSide;
+window.fStart = fStart;
+window.fRestart = fRestart;
+window.fFlip = fFlip;
+window.fSpeak = fSpeak;
+window.fAnswer = fAnswer;
+window.fExit = fExit;
+
+window.speakCurrent = speakCurrent;
 window.selectAll = selectAll;
 window.selectMode = selectMode;
 window.selectLength = selectLength;
