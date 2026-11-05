@@ -1996,8 +1996,8 @@ function lTab(set){
     card.innerHTML =
       '<div class="lh"><div class="gnum" style="background:'+color+'22;color:'+color+';">'+i+'</div>'+
       '<div><b>Сонсгол '+set+' · '+i+'</b></div></div>'+
-      '<audio controls preload="none" src="audio/SJ_W_'+set+'_'+n+'_3.mp3"></audio>'+
-      '<div class="lerr" style="display:none;">Аудио файл олдсонгүй. GitHub дээрх audio хавтсыг шалгана уу.</div>';
+      '<audio controls preload="none" src="SJ_W_'+set+'_'+n+'_3.mp3"></audio>'+
+      '<div class="lerr" style="display:none;">Аудио файл олдсонгүй. GitHub дээр mp3 файлууд index.html-ийн хажууд байгаа эсэхийг шалгана уу.</div>';
     card.querySelector("audio").addEventListener("error", function(e){
       e.target.parentNode.querySelector(".lerr").style.display = "block";
     });
