@@ -675,7 +675,7 @@
 
     <div class="gram-entry big" onclick="openListen()">
       <div class="gi listen"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><path d="M3.5 8v4h3l4 3.5v-11L6.5 8h-3Z"/><path d="M13.5 7.5a3.5 3.5 0 0 1 0 5"/><path d="M15.7 5.5a6.5 6.5 0 0 1 0 9"/></svg></div>
-      <div class="gt"><b>Сонсгол</b><span>Багшийн аудио · 1A, 1B</span></div>
+      <div class="gt"><b>Сонсгол</b><span>Багшийн аудио · 1A, 1B, 2A</span></div>
       <div class="ga">→</div>
     </div>
 
@@ -886,6 +886,7 @@
     <div class="mode-row" id="ltab-row">
       <div class="mode-btn selected" data-set="1A" onclick="lTab('1A')">1A сонсгол</div>
       <div class="mode-btn" data-set="1B" onclick="lTab('1B')">1B сонсгол</div>
+      <div class="mode-btn" data-set="2A" onclick="lTab('2A')">2A сонсгол</div>
     </div>
     <div class="section-title">Хурд</div>
     <div class="mode-row lspeed" id="lspeed-row">
@@ -2299,7 +2300,8 @@ function gFinish(){
 
 // ---------- LISTENING ----------
 var lRate = 1, lSet = "1A";
-var L_COUNT = {"1A":10, "1B":12};
+// 2A: SJ_S_2A_01_2.mp3 ... SJ_S_2A_12_2.mp3
+var L_COUNT = {"1A":10, "1B":12, "2A":12};
 function openListen(){
   showScreen("screen-listen");
   if(!document.getElementById("listen-list").dataset.ready){
@@ -2319,17 +2321,33 @@ function lTab(set){
   var box = document.getElementById("listen-list");
   box.querySelectorAll("audio").forEach(function(a){ a.pause(); });
   box.innerHTML = "";
-  var color = set === "1A" ? "#7c5cff" : "#ff5c9a";
+  var color = {"1A":"#7c5cff", "1B":"#ff5c9a", "2A":"#2fd480"}[set] || "#7c5cff";
   for(var i = 1; i <= L_COUNT[set]; i++){
     var n = i < 10 ? "0" + i : "" + i;
     var card = document.createElement("div");
     card.className = "lcard";
+    // 1A/1B-ийн хуучин нэршлийг хэвээр үлдээнэ.
+    // 2A: ZIP-ийг задлахад үүсэх хавтас дотор байвал тэндээс,
+    // эсвэл index.html-ийн хажууд байвал үндсэн хавтсаас уншина.
+    var fileName = set === "2A" ? "SJ_S_2A_" + n + "_2.mp3" : "SJ_W_" + set + "_" + n + "_3.mp3";
+    var filePath = set === "2A" ? "기본교재_2A_음원/" + fileName : fileName;
     card.innerHTML =
       '<div class="lh"><div class="gnum" style="background:'+color+'22;color:'+color+';">'+i+'</div>'+
       '<div><b>Сонсгол '+set+' · '+i+'</b></div></div>'+
-      '<audio controls preload="none" src="SJ_W_'+set+'_'+n+'_3.mp3"></audio>'+
-      '<div class="lerr" style="display:none;">Аудио файл олдсонгүй. GitHub дээр mp3 файлууд index.html-ийн хажууд байгаа эсэхийг шалгана уу.</div>';
-    card.querySelector("audio").addEventListener("error", function(e){
+      '<audio controls preload="none"></audio>'+
+      '<div class="lerr" style="display:none;">Аудио файл олдсонгүй. ZIP-ийг задалж, MP3 файлуудыг HTML-ийн хажууд эсвэл 기본교재_2A_음원 хавтсанд байрлуулна уу.</div>';
+    var audio = card.querySelector("audio");
+    audio.src = filePath;
+    if(set === "2A"){
+      audio.dataset.fallback = fileName;
+    }
+    audio.addEventListener("error", function(e){
+      var fallback = e.target.dataset.fallback;
+      if(fallback){
+        delete e.target.dataset.fallback;
+        e.target.src = fallback;
+        return;
+      }
       e.target.parentNode.querySelector(".lerr").style.display = "block";
     });
     box.appendChild(card);
